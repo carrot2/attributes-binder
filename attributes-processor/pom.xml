@@ -1,0 +1,192 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.carrot2.attributes</groupId>
+    <artifactId>attributes-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <!-- Project info. -->
+  <artifactId>attributes-processor</artifactId>
+  <packaging>jar</packaging>
+
+  <name>Attributes metadata annotation processor</name>
+
+  <!-- Dependencies. -->
+  <dependencies>
+    <dependency>
+      <groupId>org.carrot2.attributes</groupId>
+      <artifactId>attributes-binder</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.thoughtworks.qdox</groupId>
+      <artifactId>qdox</artifactId>
+      <version>1.12</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity</artifactId>
+      <version>1.7</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>commons-lang</artifactId>
+          <groupId>commons-lang</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-collections</artifactId>
+          <groupId>commons-collections</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>3.2.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.6</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity-tools</artifactId>
+      <version>2.0</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>commons-chain</artifactId>
+          <groupId>commons-chain</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-validator</artifactId>
+          <groupId>commons-validator</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-logging</artifactId>
+          <groupId>commons-logging</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>struts-taglib</artifactId>
+          <groupId>org.apache.struts</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>sslext</artifactId>
+          <groupId>sslext</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>struts-core</artifactId>
+          <groupId>org.apache.struts</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-collections</artifactId>
+          <groupId>commons-collections</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>velocity</artifactId>
+          <groupId>org.apache.velocity</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-beanutils</artifactId>
+          <groupId>commons-beanutils</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-digester</artifactId>
+          <groupId>commons-digester</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>struts-tiles</artifactId>
+          <groupId>org.apache.struts</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>dom4j</artifactId>
+          <groupId>dom4j</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>oro</artifactId>
+          <groupId>oro</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
+
+  <!-- Build tuning. -->
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <proc>none</proc>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <minimizeJar>false</minimizeJar>
+              <artifactSet>
+                <excludes>
+                  <exclude>org.simpleframework:*</exclude>
+                </excludes>
+              </artifactSet>
+              <filters>
+                <filter>
+                  <artifact>org.apache.velocity:velocity</artifact>
+                  <excludes>
+                    <exclude>org/apache/velocity/runtime/defaults/*.properties</exclude>
+                  </excludes>
+                </filter>
+              </filters>
+              <relocations>
+                <relocation>
+                  <pattern>com.google</pattern>
+                  <shadedPattern>org.carrot2.util.attribute.shaded.guava</shadedPattern>
+                </relocation>
+                <relocation>
+                  <pattern>com.thoughtworks</pattern>
+                  <shadedPattern>org.carrot2.util.attribute.shaded.qdox</shadedPattern>
+                </relocation>
+                <relocation>
+                  <pattern>org.apache</pattern>
+                  <shadedPattern>org.carrot2.util.attribute.shaded.apache</shadedPattern>
+                </relocation>
+              </relocations>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <pluginRepositories>
+    <pluginRepository>
+        <id>apache-releases</id>
+        <url>https://repository.apache.org/content/repositories/releases</url>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+    </pluginRepository>
+  </pluginRepositories>
+</project>
