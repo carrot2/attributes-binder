@@ -13,8 +13,11 @@
   <!-- Project info. -->
   <artifactId>attributes-tests</artifactId>
   <packaging>jar</packaging>
-
   <name>Attributes integration tests</name>
+
+  <properties>
+   <skip.deployment>true</skip.deployment>
+  </properties> 
 
   <!-- Dependencies. -->
   <dependencies>

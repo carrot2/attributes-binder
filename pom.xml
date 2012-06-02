@@ -3,6 +3,13 @@
 
   <modelVersion>4.0.0</modelVersion>
 
+  <!-- sonatype parent for simplicity. -->
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+
   <!-- Project info. -->
   <groupId>org.carrot2.attributes</groupId>
   <artifactId>attributes-parent</artifactId>
@@ -30,6 +37,8 @@
   </prerequisites>
 
   <properties>
+    <skip.deployment>false</skip.deployment>
+
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.6</maven.compiler.source>
