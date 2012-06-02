@@ -166,6 +166,14 @@
                     <exclude>org/apache/velocity/runtime/defaults/*.properties</exclude>
                   </excludes>
                 </filter>
+                <filter>
+                  <artifact>org.apache.velocity:velocity-tools</artifact>
+                  <excludes>
+                    <exclude>org/apache/velocity/tools/struts/**</exclude>
+                    <exclude>org/apache/velocity/tools/view/**</exclude>
+                    <exclude>org/apache/velocity/tools/config/**</exclude>
+                  </excludes>
+                </filter>
               </filters>
               <relocations>
                 <relocation>
