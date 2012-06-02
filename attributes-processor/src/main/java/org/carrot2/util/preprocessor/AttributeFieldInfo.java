@@ -10,7 +10,7 @@
  * http://www.carrot2.org/carrot2.LICENSE
  */
 
-package org.carrot2.util.attribute.metadata;
+package org.carrot2.util.preprocessor;
 
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.PrimitiveType;
@@ -19,7 +19,7 @@ import javax.lang.model.util.Types;
 import org.carrot2.util.attribute.*;
 
 /**
- * Additional information about an attribute field.
+ * Additional information about an attribute field. Needs to be public for Velocity.
  */
 public class AttributeFieldInfo
 {

@@ -22,11 +22,13 @@
     This seems to be required for compilation on a mac.
     Otherwise annotation processor is not detected/ used. 
     --> 
+    <!-- 
     <dependency>
       <groupId>org.carrot2.attributes</groupId>
       <artifactId>attributes-processor</artifactId>
       <version>${project.version}</version>
     </dependency>
+    -->
 
     <dependency>
       <groupId>org.carrot2.attributes</groupId>

@@ -10,7 +10,7 @@
  * http://www.carrot2.org/carrot2.LICENSE
  */
 
-package org.carrot2.util.attribute.metadata;
+package org.carrot2.util.preprocessor;
 
 import java.lang.annotation.Annotation;
 import java.util.List;
@@ -22,7 +22,7 @@ import javax.lang.model.type.TypeMirror;
 /**
  * A dummy class patching Eclipse bugs.
  */
-public class DummyVariableElement implements VariableElement
+class DummyVariableElement implements VariableElement
 {
     private Name simpleName;
 

@@ -10,10 +10,10 @@
  * http://www.carrot2.org/carrot2.LICENSE
  */
 
-package org.carrot2.util.attribute.metadata;
+package org.carrot2.util.preprocessor;
 
 /**
- * Method name related utilities.
+ * Method name related utilities. Needs to be public for Velocity.
  */
 public final class MethodUtils
 {

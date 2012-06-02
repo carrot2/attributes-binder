@@ -12,8 +12,6 @@
 
 package org.carrot2.util.attribute;
 
-import com.google.common.reflect.Reflection;
-
 /**
  * Utilities related to generated bindable descriptors.
  */
@@ -30,7 +28,7 @@ public final class BindableDescriptorUtils
      */
     public static String getDescriptorClassName(String className)
     {
-        String packageName = Reflection.getPackageName(className);
+        String packageName = getPackageName(className);
 
         // Nested classes will get a top level descriptor.
         String shortClassName;
@@ -101,5 +99,14 @@ public final class BindableDescriptorUtils
         {
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * Return the package name from a given class name (expressed as a string).
+     */
+    public static String getPackageName(String classFullName)
+    {
+        final int lastDot = classFullName.lastIndexOf('.');
+        return lastDot < 0 ? "" : classFullName.substring(0, lastDot);
     }
 }

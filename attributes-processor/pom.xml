@@ -22,12 +22,34 @@
       <groupId>org.carrot2.attributes</groupId>
       <artifactId>attributes-binder</artifactId>
       <version>${project.version}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>guava</artifactId>
+          <groupId>com.google.guava</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>simple-xml</artifactId>
+          <groupId>org.simpleframework</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
       <groupId>com.thoughtworks.qdox</groupId>
       <artifactId>qdox</artifactId>
       <version>1.12</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>3.2.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.6</version>
     </dependency>
 
     <dependency>
@@ -44,18 +66,6 @@
           <groupId>commons-collections</groupId>
         </exclusion>
       </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>commons-collections</groupId>
-      <artifactId>commons-collections</artifactId>
-      <version>3.2.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-      <version>2.6</version>
     </dependency>
 
     <dependency>
@@ -146,6 +156,7 @@
               <artifactSet>
                 <excludes>
                   <exclude>org.simpleframework:*</exclude>
+                  <exclude>com.google:*</exclude>
                 </excludes>
               </artifactSet>
               <filters>
@@ -158,16 +169,12 @@
               </filters>
               <relocations>
                 <relocation>
-                  <pattern>com.google</pattern>
-                  <shadedPattern>org.carrot2.util.attribute.shaded.guava</shadedPattern>
-                </relocation>
-                <relocation>
                   <pattern>com.thoughtworks</pattern>
-                  <shadedPattern>org.carrot2.util.attribute.shaded.qdox</shadedPattern>
+                  <shadedPattern>org.carrot2.util.preprocessor.shaded.qdox</shadedPattern>
                 </relocation>
                 <relocation>
                   <pattern>org.apache</pattern>
-                  <shadedPattern>org.carrot2.util.attribute.shaded.apache</shadedPattern>
+                  <shadedPattern>org.carrot2.util.preprocessor.shaded.apache</shadedPattern>
                 </relocation>
               </relocations>
             </configuration>

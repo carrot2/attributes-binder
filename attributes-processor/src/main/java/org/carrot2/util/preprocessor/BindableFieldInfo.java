@@ -10,13 +10,13 @@
  * http://www.carrot2.org/carrot2.LICENSE
  */
 
-package org.carrot2.util.attribute.metadata;
+package org.carrot2.util.preprocessor;
 
 import javax.lang.model.element.Element;
 import javax.lang.model.element.VariableElement;
 
 /**
- * Information about a nested bindable field.
+ * Information about a nested bindable field. Needs to be public for Velocity.
  */
 public class BindableFieldInfo
 {

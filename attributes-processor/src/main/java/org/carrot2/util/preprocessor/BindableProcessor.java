@@ -10,7 +10,7 @@
  * http://www.carrot2.org/carrot2.LICENSE
  */
 
-package org.carrot2.util.attribute.metadata;
+package org.carrot2.util.preprocessor;
 
 import static javax.lang.model.SourceVersion.RELEASE_6;
 

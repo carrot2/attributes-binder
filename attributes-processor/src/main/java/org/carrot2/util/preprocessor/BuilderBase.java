@@ -10,7 +10,7 @@
  * http://www.carrot2.org/carrot2.LICENSE
  */
 
-package org.carrot2.util.attribute.metadata;
+package org.carrot2.util.preprocessor;
 
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.Type;
