@@ -135,7 +135,9 @@
                     showStatusIgnored="true"
 
                     showSuiteSummary="true"
-                />              
+                />
+                
+                <report-ant-xml dir="${project.build.directory}/surefire-reports" mavenExtensions="true" /> 
               </listeners>
 
               <assertions>
