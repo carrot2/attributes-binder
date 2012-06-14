@@ -42,7 +42,8 @@ public class PassesValueOfConstraint extends Constraint
             try
             {
                 Method m = clazz.getMethod("valueOf", value.getClass());
-                if (Modifier.isStatic(m.getModifiers())) {
+                if (!Modifier.isStatic(m.getModifiers()))
+                {
                     throw new NoSuchMethodError(valueOfName + " not static.");
                 }
                 m.invoke(null, value);
