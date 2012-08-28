@@ -529,6 +529,13 @@ public final class BindableProcessor extends AbstractProcessor
         if (kind.isPrimitive() || kind != TypeKind.DECLARED)
             return false;
 
+        List<? extends TypeMirror> directSupertypes = types.directSupertypes(asType);
+        if (!directSupertypes.isEmpty()
+            && types.erasure(directSupertypes.get(0)).toString().equals("java.lang.Enum"))
+        {
+            return false;
+        }
+
         String rawType = types.erasure(f.asType()).toString();
         if (rawType.startsWith("java.lang.") || 
             rawType.startsWith("java.util."))
