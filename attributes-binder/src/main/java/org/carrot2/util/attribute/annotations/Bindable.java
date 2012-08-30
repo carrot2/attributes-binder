@@ -10,9 +10,11 @@
  * http://www.carrot2.org/carrot2.LICENSE
  */
 
-package org.carrot2.util.attribute;
+package org.carrot2.util.attribute.annotations;
 
 import java.lang.annotation.*;
+
+import org.carrot2.util.attribute.AttributeBinder;
 
 /**
  * Denotes types that will have some of their fields bound (set or collected) by the

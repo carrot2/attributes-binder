@@ -15,6 +15,8 @@ package org.carrot2.util.attribute;
 import java.util.Map;
 import java.util.Set;
 
+import org.carrot2.util.attribute.annotations.Bindable;
+
 
 /**
  * Additional, statically derived, metadata describing a {@link Bindable} component.

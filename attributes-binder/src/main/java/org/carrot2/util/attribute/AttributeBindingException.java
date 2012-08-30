@@ -12,6 +12,8 @@
 
 package org.carrot2.util.attribute;
 
+import org.carrot2.util.attribute.annotations.Attribute;
+
 /**
  * An exception thrown when problems occur in
  * {@link AttributeBinder#set(Object, java.util.Map, Class...)}.

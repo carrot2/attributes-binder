@@ -14,6 +14,8 @@ package org.carrot2.util.attribute;
 
 import java.util.*;
 
+import org.carrot2.util.attribute.annotations.Attribute;
+import org.carrot2.util.attribute.annotations.Bindable;
 import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Root;
 

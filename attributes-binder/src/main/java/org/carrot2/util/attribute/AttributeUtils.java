@@ -12,6 +12,8 @@
 
 package org.carrot2.util.attribute;
 
+import org.carrot2.util.attribute.annotations.Attribute;
+
 /**
  * A number of utility methods for working with {@link Attribute}s.
  */

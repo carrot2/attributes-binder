@@ -10,17 +10,22 @@
  * http://www.carrot2.org/carrot2.LICENSE
  */
 
-package org.carrot2.util.attribute;
+package org.carrot2.util.attribute.annotations;
 
 import java.lang.annotation.*;
 
+import org.carrot2.util.attribute.AttributeLevel;
+
 /**
- * Marks required attributes. {@link AttributeBinder} will throw an exception when there
- * is no value provided for this attribute, or if the value provided is <code>null</code>.
+ * User-friendliness level for sorting/ hiding attributes in the GUI.
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Required
+public @interface Level
 {
+    /**
+     * An {@link AttributeLevel} assigned to the attribute.
+     */
+    AttributeLevel value();
 }

@@ -16,6 +16,10 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.*;
 
+import org.carrot2.util.attribute.annotations.Attribute;
+import org.carrot2.util.attribute.annotations.Input;
+import org.carrot2.util.attribute.annotations.Output;
+import org.carrot2.util.attribute.annotations.Required;
 import org.carrot2.util.attribute.constraint.*;
 import org.carrot2.util.attribute.constraint.Constraint;
 import org.simpleframework.xml.*;

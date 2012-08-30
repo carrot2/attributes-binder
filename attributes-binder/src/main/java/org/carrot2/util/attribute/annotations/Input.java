@@ -10,23 +10,18 @@
  * http://www.carrot2.org/carrot2.LICENSE
  */
 
-package org.carrot2.util.attribute;
+package org.carrot2.util.attribute.annotations;
 
 import java.lang.annotation.*;
 
+import org.carrot2.util.attribute.AttributeBinder;
+
 /**
- * User interface name for an attribute or type.
+ * Denotes fields whose values can be set (written) by {@link AttributeBinder}.
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD, ElementType.TYPE})
-public @interface Label
+@Target(ElementType.FIELD)
+public @interface Input
 {
-    /**
-     * User interface name for an attribute or type.
-     *
-     * We don't care about i18n. This could also be the key to a localized
-     * resource at some point.
-     */
-    String value();
 }

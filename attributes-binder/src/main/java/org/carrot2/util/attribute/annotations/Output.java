@@ -10,20 +10,18 @@
  * http://www.carrot2.org/carrot2.LICENSE
  */
 
-package org.carrot2.util.attribute;
+package org.carrot2.util.attribute.annotations;
 
 import java.lang.annotation.*;
 
+import org.carrot2.util.attribute.AttributeBinder;
+
 /**
- * User-friendliness level for sorting/ hiding attributes in the GUI.
+ * Denotes fields whose values can be read (collected) by {@link AttributeBinder}.
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Level
+public @interface Output
 {
-    /**
-     * An {@link AttributeLevel} assigned to the attribute.
-     */
-    AttributeLevel value();
 }

@@ -12,9 +12,10 @@
 
 package org.carrot2.util.attribute.test.binder;
 
+import org.carrot2.util.attribute.annotations.*;
 import java.io.File;
-
 import org.carrot2.util.attribute.*;
+import org.carrot2.util.attribute.annotations.Bindable;
 import org.carrot2.util.attribute.constraint.ImplementingClasses;
 
 @Bindable

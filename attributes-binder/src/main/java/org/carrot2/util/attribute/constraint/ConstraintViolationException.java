@@ -15,7 +15,7 @@ package org.carrot2.util.attribute.constraint;
 import java.lang.annotation.Annotation;
 import java.util.List;
 
-import org.carrot2.util.attribute.Attribute;
+import org.carrot2.util.attribute.annotations.Attribute;
 
 import com.google.common.collect.Lists;
 

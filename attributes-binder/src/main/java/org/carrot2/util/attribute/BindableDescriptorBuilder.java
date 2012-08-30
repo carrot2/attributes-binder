@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.carrot2.util.attribute.annotations.Attribute;
+import org.carrot2.util.attribute.annotations.Bindable;
 import org.carrot2.util.attribute.constraint.IsConstraint;
 
 import com.google.common.collect.Lists;
@@ -46,6 +48,11 @@ public class BindableDescriptorBuilder
         return buildDescriptor(initializedInstance, new HashSet<Object>());
     }
 
+    public static IBindableDescriptor buildDescriptor(Class<?> clazz)
+    {
+        return BindableDescriptorUtils.getDescriptor(clazz);
+    }
+    
     /**
      * Internal implementation of descriptor building.
      */

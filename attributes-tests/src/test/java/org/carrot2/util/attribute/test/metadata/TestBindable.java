@@ -12,8 +12,8 @@
 
 package org.carrot2.util.attribute.test.metadata;
 
-import org.carrot2.util.attribute.Bindable;
-import org.carrot2.util.attribute.Label;
+import org.carrot2.util.attribute.annotations.Bindable;
+import org.carrot2.util.attribute.annotations.Label;
 
 /**
  * Some test bindable. Description.

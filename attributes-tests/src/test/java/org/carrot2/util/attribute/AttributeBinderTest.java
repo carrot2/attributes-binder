@@ -12,10 +12,12 @@
 
 package org.carrot2.util.attribute;
 
+import org.carrot2.util.attribute.annotations.*;
 import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.carrot2.util.attribute.annotations.Bindable;
 import org.carrot2.util.attribute.constraint.*;
 import org.fest.assertions.MapAssert;
 import org.junit.Before;

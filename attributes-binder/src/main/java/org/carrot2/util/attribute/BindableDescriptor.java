@@ -17,6 +17,10 @@ import java.lang.reflect.Field;
 import java.util.*;
 import java.util.Map.Entry;
 
+import org.carrot2.util.attribute.annotations.Attribute;
+import org.carrot2.util.attribute.annotations.Bindable;
+import org.carrot2.util.attribute.annotations.Input;
+
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;

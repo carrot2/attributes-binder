@@ -10,23 +10,19 @@
  * http://www.carrot2.org/carrot2.LICENSE
  */
 
-package org.carrot2.util.attribute;
+package org.carrot2.util.attribute.annotations;
 
 import java.lang.annotation.*;
 
+import org.carrot2.util.attribute.AttributeBinder;
+
 /**
- * User interface group name for an attribute.
+ * Marks required attributes. {@link AttributeBinder} will throw an exception when there
+ * is no value provided for this attribute, or if the value provided is <code>null</code>.
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Group
+public @interface Required
 {
-    /**
-     * Name of the target user interface group.
-     * 
-     * We don't care about i18n. This could also be the key to a localized
-     * resource at some point.
-     */
-    String value();
 }

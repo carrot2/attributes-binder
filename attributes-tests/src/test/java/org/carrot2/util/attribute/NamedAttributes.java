@@ -12,8 +12,11 @@
 
 package org.carrot2.util.attribute;
 
+import org.carrot2.util.attribute.annotations.Bindable;
+import org.carrot2.util.attribute.annotations.Label;
 import org.carrot2.util.attribute.test.metadata.TestAncestorAttributes;
 import org.carrot2.util.attribute.test.metadata.TestAttributeNames;
+import org.carrot2.util.attribute.annotations.*;
 
 /**
  * Test named attribute container.

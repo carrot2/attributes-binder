@@ -15,9 +15,12 @@ package org.carrot2.util.attribute;
 import java.lang.reflect.Method;
 import java.util.Map;
 
+import org.carrot2.util.attribute.annotations.Bindable;
 import org.junit.Test;
 
 import com.carrotsearch.randomizedtesting.RandomizedTest;
+
+import org.carrot2.util.attribute.annotations.*;
 
 public class BindableDescriptorGeneratorTest extends RandomizedTest
 {

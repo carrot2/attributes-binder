@@ -12,6 +12,8 @@
 
 package org.carrot2.util.attribute;
 
+import org.carrot2.util.attribute.annotations.Bindable;
+
 /**
  * Utilities related to generated bindable descriptors.
  */

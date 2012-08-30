@@ -17,6 +17,8 @@ import javax.lang.model.type.PrimitiveType;
 import javax.lang.model.util.Types;
 
 import org.carrot2.util.attribute.*;
+import org.carrot2.util.attribute.annotations.Input;
+import org.carrot2.util.attribute.annotations.Output;
 
 /**
  * Additional information about an attribute field. Needs to be public for Velocity.
@@ -123,7 +125,7 @@ public class AttributeFieldInfo
     {
         return field.getAnnotation(Output.class) != null;
     }    
-    
+
     public String getType()
     {
         return field.asType().toString();

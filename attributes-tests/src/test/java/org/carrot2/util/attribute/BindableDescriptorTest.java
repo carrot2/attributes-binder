@@ -15,9 +15,11 @@ package org.carrot2.util.attribute;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.carrot2.util.attribute.annotations.Bindable;
 import org.carrot2.util.attribute.test.filtering.*;
 import org.fest.assertions.Assertions;
 import org.junit.Test;
+import org.carrot2.util.attribute.annotations.*;
 
 import com.carrotsearch.randomizedtesting.RandomizedTest;
 

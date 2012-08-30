@@ -12,6 +12,9 @@
 
 package org.carrot2.util.attribute;
 
+import org.carrot2.util.attribute.annotations.Attribute;
+import org.carrot2.util.attribute.annotations.Bindable;
+
 /**
  * Description of an {@link Attribute} of a {@link Bindable} type, including
  * javadoc documentation and compile-time extracted tags.

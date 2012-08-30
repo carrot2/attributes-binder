@@ -17,6 +17,8 @@ import java.lang.annotation.Annotation;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import org.carrot2.util.attribute.annotations.*;
+
 import org.carrot2.util.attribute.constraint.ImplementingClasses;
 import org.carrot2.util.attribute.AttributeMetadata;
 import org.carrot2.util.attribute.test.assertions.AttributeAssertions;

@@ -12,7 +12,7 @@
 
 package org.carrot2.util.attribute.test.metadata;
 
-import org.carrot2.util.attribute.Bindable;
+import org.carrot2.util.attribute.annotations.Bindable;
 
 /**
  *

@@ -14,7 +14,7 @@ package org.carrot2.util.attribute.constraint;
 
 import java.lang.annotation.*;
 
-import org.carrot2.util.attribute.Required;
+import org.carrot2.util.attribute.annotations.Required;
 
 /**
  * A set of values for an attribute of type {@link String}. This can be either a hint

@@ -29,6 +29,11 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.runtime.RuntimeInstance;
 import org.carrot2.util.attribute.*;
+import org.carrot2.util.attribute.annotations.Attribute;
+import org.carrot2.util.attribute.annotations.Bindable;
+import org.carrot2.util.attribute.annotations.Group;
+import org.carrot2.util.attribute.annotations.Label;
+import org.carrot2.util.attribute.annotations.Level;
 
 import com.thoughtworks.qdox.parser.Builder;
 import com.thoughtworks.qdox.parser.ParseException;
