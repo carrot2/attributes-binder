@@ -23,7 +23,7 @@ public enum AttributeLevel
     BASIC("Basic"),
 
     /**
-     * Attribute value easy to tune for a user familiar with intelligent text processing.
+     * Attribute value easy to tune for a user familiar with text processing.
      */
     MEDIUM("Medium"),
 
