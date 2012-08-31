@@ -23,6 +23,7 @@ import org.carrot2.util.attribute.annotations.Required;
 import org.carrot2.util.attribute.constraint.*;
 import org.carrot2.util.attribute.constraint.Constraint;
 import org.simpleframework.xml.*;
+import org.simpleframework.xml.convert.Convert;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
@@ -45,7 +46,8 @@ public class AttributeDescriptor
      * Human-readable metadata describing the attribute.
      */
     @Element
-    public final AttributeMetadata metadata;
+    @Convert(AttributeInfoConverter.class)
+    public final AttributeInfo metadata;
 
     /**
      * Type of the attribute as defined by {@link Attribute#key()}.
@@ -134,8 +136,7 @@ public class AttributeDescriptor
     /**
      * 
      */
-    AttributeDescriptor(Field field, Object defaultValue, List<Annotation> constraints,
-        AttributeMetadata metadata)
+    AttributeDescriptor(Field field, Object defaultValue, List<Annotation> constraints, AttributeInfo metadata)
     {
         this.attributeField = field;
         this.attributeDeclaringClassString = field.getDeclaringClass().getName();

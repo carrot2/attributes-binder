@@ -20,7 +20,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.carrot2.util.attribute.annotations.*;
 
 import org.carrot2.util.attribute.constraint.ImplementingClasses;
-import org.carrot2.util.attribute.AttributeMetadata;
 import org.carrot2.util.attribute.test.assertions.AttributeAssertions;
 import org.carrot2.util.attribute.test.binder.BindableReferenceContainer;
 import org.carrot2.util.attribute.test.binder.BindableReferenceImpl1;

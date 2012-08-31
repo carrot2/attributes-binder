@@ -54,6 +54,7 @@ public class AttributeBinderInjector
             {
                 new InjectByType(values)
             };
+
             for (Object o : objects)
             {
                 if (o != null)

@@ -31,7 +31,7 @@ public final class LevelsPredicate implements Predicate<AttributeDescriptor>
     {
         for (AttributeLevel level : levels)
         {
-            if (level.equals(descriptor.metadata.getLevel()))
+            if (level.equals(descriptor.metadata.level))
             {
                 return true;
             }

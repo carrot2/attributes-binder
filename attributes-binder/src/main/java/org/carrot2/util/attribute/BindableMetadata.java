@@ -26,7 +26,7 @@ import org.simpleframework.xml.Root;
 public class BindableMetadata extends CommonMetadata
 {
     @ElementMap(name = "attributes", entry = "attribute", key = "field-name", inline = false, attribute = true)
-    private Map<String, AttributeMetadata> attributeMetadataInternal; 
+    private Map<String, AttributeInfo> attributeMetadataInternal; 
 
     public BindableMetadata()
     {
@@ -39,12 +39,12 @@ public class BindableMetadata extends CommonMetadata
      *         the attribute key as defined by {@link Attribute#key()}. The returned map
      *         is unmodifiable.
      */
-    public Map<String, AttributeMetadata> getAttributeMetadata()
+    public Map<String, AttributeInfo> getAttributeMetadata()
     {
         return Collections.unmodifiableMap(attributeMetadataInternal);
     }
 
-    public void setAttributeMetadata(Map<String, AttributeMetadata> map)
+    public void setAttributeMetadata(Map<String, AttributeInfo> map)
     {
         attributeMetadataInternal = map;
     }
@@ -72,14 +72,12 @@ public class BindableMetadata extends CommonMetadata
         return bindable;
     }
 
-    private static Map<String, AttributeMetadata> asAttributeMetadata(Set<AttributeInfo> attributes)
+    private static Map<String, AttributeInfo> asAttributeMetadata(Set<AttributeInfo> attributes)
     {
-        final Map<String, AttributeMetadata> map = new HashMap<String, AttributeMetadata>();
+        final Map<String, AttributeInfo> map = new HashMap<String, AttributeInfo>();
         for (AttributeInfo attr : attributes)
         {
-            map.put(attr.fieldName, 
-                new AttributeMetadata(
-                    attr.title, attr.label, attr.description, attr.group, attr.level));
+            map.put(attr.fieldName, attr);
         }
         return map;
     }

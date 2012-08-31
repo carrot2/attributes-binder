@@ -405,7 +405,7 @@ public class BindableDescriptor
         {
             if (attributeDescriptor.metadata != null)
             {
-                return attributeDescriptor.metadata.getLevel();
+                return attributeDescriptor.metadata.level;
             }
             else
             {
@@ -421,7 +421,7 @@ public class BindableDescriptor
         {
             if (attributeDescriptor.metadata != null)
             {
-                return attributeDescriptor.metadata.getGroup();
+                return attributeDescriptor.metadata.group;
             }
             else
             {

@@ -154,7 +154,7 @@ public class BindableDescriptorBuilder
                 + BindableUtils.getKey(field));
         }
 
-        AttributeMetadata attributeMetadata = null;
+        AttributeInfo attributeMetadata = null;
         if (bindableMetadata != null)
         {
             attributeMetadata = bindableMetadata.getAttributeMetadata().get(

@@ -24,7 +24,7 @@ public class AttributeAssertions
         return new CommonMetadataAssertion(actual);
     }
 
-    public static AttributeMetadataAssertion assertThat(AttributeMetadata actual)
+    public static AttributeMetadataAssertion assertThat(AttributeInfo actual)
     {
         return new AttributeMetadataAssertion(actual);
     }

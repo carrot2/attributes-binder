@@ -14,21 +14,21 @@ package org.carrot2.util.attribute.test.assertions;
 
 import static org.fest.assertions.Assertions.assertThat;
 
-import org.carrot2.util.attribute.AttributeMetadata;
+import org.carrot2.util.attribute.AttributeInfo;
 
 /**
  * Assertions on {@link AttributeMetadata}.
  */
 public class AttributeMetadataAssertion
 {
-    private final AttributeMetadata actual;
+    private final AttributeInfo actual;
 
-    public AttributeMetadataAssertion(AttributeMetadata actual)
+    public AttributeMetadataAssertion(AttributeInfo actual)
     {
         this.actual = actual;
     }
 
-    public AttributeMetadataAssertion isEquivalentTo(AttributeMetadata expected)
+    public AttributeMetadataAssertion isEquivalentTo(AttributeInfo expected)
     {
         new CommonMetadataAssertion(actual).isEquivalentTo(expected);
         assertThat(actual.getLevel()).as("level").isEqualTo(expected.getLevel());
