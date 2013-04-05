@@ -125,8 +125,12 @@ public class AttributeBinder
         boolean checkRequired, Predicate<Field> predicate) throws InstantiationException,
         AttributeBindingException
     {
-        final AttributeBinderActionBind attributeBinderActionBind = new AttributeBinderActionBind(
-            values, checkRequired, AttributeTransformerFromString.INSTANCE);
+        final AttributeBinderActionBind attributeBinderActionBind = 
+            new AttributeBinderActionBind(
+                values, 
+                checkRequired, 
+                AttributeTransformerFromString.INSTANCE,
+                AttributeTransformerFactory.INSTANCE);
         final IAttributeBinderAction [] actions = new IAttributeBinderAction []
         {
             attributeBinderActionBind,
@@ -355,7 +359,7 @@ public class AttributeBinder
     {
         public Object transform(Object value, String key, Field field);
     }
-
+    
     /**
      * Transforms {@link String} attribute values to the types required by the target
      * field by:

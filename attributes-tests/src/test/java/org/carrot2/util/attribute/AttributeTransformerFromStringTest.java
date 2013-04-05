@@ -12,9 +12,7 @@
 
 package org.carrot2.util.attribute;
 
-import java.io.File;
 import java.lang.reflect.Field;
-import java.net.URL;
 
 import org.carrot2.util.attribute.AttributeBinder.AttributeTransformerFromString;
 import org.carrot2.util.attribute.constraint.ImplementingClasses;

@@ -12,7 +12,15 @@
 
 package org.carrot2.util.attribute.test.binder;
 
-import org.carrot2.util.attribute.*;
+import org.carrot2.util.attribute.Attribute;
+import org.carrot2.util.attribute.AttributeLevel;
+import org.carrot2.util.attribute.Bindable;
+import org.carrot2.util.attribute.Group;
+import org.carrot2.util.attribute.Input;
+import org.carrot2.util.attribute.Label;
+import org.carrot2.util.attribute.Level;
+import org.carrot2.util.attribute.TestInit;
+import org.carrot2.util.attribute.TestProcessing;
 
 /**
  *

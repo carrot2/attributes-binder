@@ -14,9 +14,6 @@ package org.carrot2.util.attribute;
 
 import java.util.Map;
 
-import org.carrot2.util.attribute.AttributeMetadata;
-import org.carrot2.util.attribute.BindableMetadata;
-import org.carrot2.util.attribute.CommonMetadata;
 import org.carrot2.util.attribute.test.metadata.AttributeDescriptions;
 import org.carrot2.util.attribute.test.metadata.AttributeGroups;
 import org.carrot2.util.attribute.test.metadata.AttributeLabels;

@@ -209,12 +209,28 @@ public final class ${sourceType.simpleName}Descriptor implements IBindableDescri
         #if ($i.generatesClassSetter)#**#
         /**
          * $!{i.javaDoc}
+         *
+         * A class that extends $i.type or appropriate IObjectFactory.
          * 
          * @see ${i.declaringClass}#${i.field.simpleName}
          */
-        public AttributeBuilder ${i.field.simpleName}(Class<? extends $i.type> clazz)
+        public AttributeBuilder ${i.field.simpleName}(Class<?> clazz)
         {
             map.put("$i.key", clazz);
+            return this;
+        }
+        #end
+
+        #* Generate factory type setters for @Input attributes. *#
+        #if ($i.input)#**#
+        /**
+         * $!{i.javaDoc}
+         * 
+         * @see ${i.declaringClass}#${i.field.simpleName} 
+         */
+        public AttributeBuilder ${i.field.simpleName}(IObjectFactory<? extends $i.boxedType> value)
+        {
+            map.put("$i.key", value);
             return this;
         }
         #end

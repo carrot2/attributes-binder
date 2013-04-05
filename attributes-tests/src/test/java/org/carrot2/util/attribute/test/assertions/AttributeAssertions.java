@@ -12,7 +12,10 @@
 
 package org.carrot2.util.attribute.test.assertions;
 
-import org.carrot2.util.attribute.*;
+import org.carrot2.util.attribute.AttributeDescriptor;
+import org.carrot2.util.attribute.AttributeMetadata;
+import org.carrot2.util.attribute.BindableDescriptor;
+import org.carrot2.util.attribute.CommonMetadata;
 
 /**
  * Assertions for the attribute-related classes.

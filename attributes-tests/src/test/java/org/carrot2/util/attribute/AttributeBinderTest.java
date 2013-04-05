@@ -13,17 +13,25 @@
 package org.carrot2.util.attribute;
 
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.carrot2.util.attribute.constraint.*;
+import org.carrot2.util.attribute.constraint.ConstraintViolationException;
+import org.carrot2.util.attribute.constraint.ImplementingClasses;
+import org.carrot2.util.attribute.constraint.IntModulo;
+import org.carrot2.util.attribute.constraint.IntRange;
+import org.fest.assertions.Assertions;
 import org.fest.assertions.MapAssert;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.carrotsearch.randomizedtesting.RandomizedTest;
-
-import org.fest.assertions.Assertions;
 
 /**
  * Test cases for {@link AttributeBinder}.
@@ -1030,6 +1038,102 @@ public class AttributeBinderTest extends RandomizedTest
         catch (AttributeBindingException e)
         {
             Assertions.assertThat(e.getCause().getCause().getMessage()).isEqualTo("(original exception)");
+        }
+    }
+
+    @Test
+    public void testFactoryAttrInstance() throws Exception
+    {
+        FactoryAttrClass instance = new FactoryAttrClass();
+        addAttribute(FactoryAttrClass.class, "attr", 
+            new NonDelegableFactory());
+        
+        AttributeBinder.set(instance, attributes, 
+            Input.class, 
+            TestInit.class);
+
+        assertNotNull(instance.attr);
+        Assertions.assertThat(instance.attr).isInstanceOf(NonDelegableSubclass.class);
+    }
+
+    @Test
+    public void testFactoryAttrClass() throws Exception
+    {
+        FactoryAttrClass instance = new FactoryAttrClass();
+        addAttribute(FactoryAttrClass.class, "attr", NonDelegableFactory.class);
+
+        AttributeBinder.set(instance, attributes, 
+            Input.class, 
+            TestInit.class);
+
+        assertNotNull(instance.attr);
+        Assertions.assertThat(instance.attr).isInstanceOf(NonDelegableSubclass.class);
+    }    
+
+    @Test
+    public void testFactoryAttrBuilder() throws Exception
+    {
+        FactoryAttrClass instance = new FactoryAttrClass();
+        FactoryAttrClassDescriptor.attributeBuilder(attributes)
+            .attr(new NonDelegableFactory());
+
+        AttributeBinder.set(instance, attributes, 
+            Input.class, 
+            TestInit.class);
+
+        assertNotNull(instance.attr);
+        Assertions.assertThat(instance.attr).isInstanceOf(NonDelegableSubclass.class);
+    }
+
+
+    @Test
+    public void testFactoryAttrBuilderClass() throws Exception
+    {
+        FactoryAttrClass instance = new FactoryAttrClass();
+        FactoryAttrClassDescriptor.attributeBuilder(attributes)
+            .attr(NonDelegableFactory.class);
+
+        AttributeBinder.set(instance, attributes, 
+            Input.class, 
+            TestInit.class);
+
+        assertNotNull(instance.attr);
+        Assertions.assertThat(instance.attr).isInstanceOf(NonDelegableSubclass.class);
+    }
+
+    @Bindable
+    public static class FactoryAttrClass
+    {
+        @Attribute
+        @Input
+        @TestInit
+        @ImplementingClasses(classes = {
+            // Nothing specific.
+        }, strict = false)
+        private NonDelegable attr;
+    }
+
+    public abstract static class NonDelegable
+    {
+        protected abstract int protectedIAm();
+
+        public final int method() {
+            return protectedIAm();
+        }
+    }
+    
+    public static class NonDelegableSubclass extends NonDelegable 
+    {
+        @Override
+        protected int protectedIAm() { return 0; }
+    }
+
+    public static class NonDelegableFactory implements IObjectFactory<NonDelegableSubclass>
+    {
+        @Override
+        public NonDelegableSubclass create()
+        {
+            return new NonDelegableSubclass();
         }
     }
 

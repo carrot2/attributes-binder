@@ -15,7 +15,9 @@ package org.carrot2.util.attribute;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.carrot2.util.attribute.test.filtering.*;
+import org.carrot2.util.attribute.test.filtering.FilteringReferenceClass;
+import org.carrot2.util.attribute.test.filtering.FilteringSubClass;
+import org.carrot2.util.attribute.test.filtering.FilteringSuperClass;
 import org.fest.assertions.Assertions;
 import org.junit.Test;
 

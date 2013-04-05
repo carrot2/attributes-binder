@@ -12,7 +12,11 @@
 
 package org.carrot2.util.attribute.test.metadata;
 
-import org.carrot2.util.attribute.*;
+import org.carrot2.util.attribute.Attribute;
+import org.carrot2.util.attribute.Bindable;
+import org.carrot2.util.attribute.Input;
+import org.carrot2.util.attribute.Label;
+import org.carrot2.util.attribute.TestInit;
 
 /**
  *

@@ -16,22 +16,15 @@
   <name>Attributes integration tests</name>
 
   <properties>
-   <skip.deployment>true</skip.deployment>
-  </properties> 
+    <skip.deployment>true</skip.deployment>
+  </properties>
 
   <!-- Dependencies. -->
   <dependencies>
-    <!-- 
-    This seems to be required for compilation on a mac.
-    Otherwise annotation processor is not detected/ used. 
-    --> 
-    <!-- 
-    <dependency>
-      <groupId>org.carrot2.attributes</groupId>
-      <artifactId>attributes-processor</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    -->
+    <!-- This seems to be required for compilation on a mac. Otherwise annotation 
+      processor is not detected/ used. -->
+    <!-- <dependency> <groupId>org.carrot2.attributes</groupId> <artifactId>attributes-processor</artifactId> 
+      <version>${project.version}</version> </dependency> -->
 
     <dependency>
       <groupId>org.carrot2.attributes</groupId>
@@ -61,41 +54,23 @@
 
   <!-- Build tuning. -->
   <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <versionRange>[2.4.0,)</versionRange>
-                    <goals>
-                      <goal>compile</goal>
-                      <goal>testCompile</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore />
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.5</version>
+        <groupId>org.bsc.maven</groupId>
+        <artifactId>maven-processor-plugin</artifactId>
+        <version>2.2.0</version>
+        <executions>
+          <execution>
+            <id>process-test</id>
+            <goals>
+              <goal>process-test</goal>
+            </goals>
+            <phase>generate-test-sources</phase>
+            <configuration>
+              <outputDirectory>target/src-generated</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
         <dependencies>
           <dependency>
             <groupId>org.carrot2.attributes</groupId>
@@ -103,6 +78,35 @@
             <version>${project.version}</version>
           </dependency>
         </dependencies>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${project.build.directory}/src-generated/</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.5.1</version>
+        <configuration>
+          <compilerArgument>-proc:none</compilerArgument>
+        </configuration>
       </plugin>
 
       <plugin>
@@ -128,24 +132,18 @@
             <configuration>
               <parallelism>auto</parallelism>
               <listeners>
-                <report-text
-                    showThrowable="true" 
-                    showStackTraces="true" 
-                    showOutput="always"
+                <report-text showThrowable="true" showStackTraces="true"
+                  showOutput="always" showStatusOk="true" showStatusError="true"
+                  showStatusFailure="true" showStatusIgnored="true"
 
-                    showStatusOk="true"
-                    showStatusError="true"
-                    showStatusFailure="true"
-                    showStatusIgnored="true"
+                  showSuiteSummary="true" />
 
-                    showSuiteSummary="true"
-                />
-                
-                <report-ant-xml dir="${project.build.directory}/surefire-reports" mavenExtensions="true" /> 
+                <report-ant-xml dir="${project.build.directory}/surefire-reports"
+                  mavenExtensions="true" />
               </listeners>
 
               <assertions>
-                <enable package="org.carrot2"/>
+                <enable package="org.carrot2" />
               </assertions>
 
               <includes>
@@ -154,9 +152,9 @@
               <excludes>
                 <exclude>**/*$*</exclude>
               </excludes>
-              
+
               <jvmArgs>
-                  <value>-Dtests.stackfiltering=false</value>
+                <value>-Dtests.stackfiltering=false</value>
               </jvmArgs>
             </configuration>
           </execution>

@@ -14,7 +14,8 @@ package org.carrot2.util.attribute.test.assertions;
 
 import static org.carrot2.util.attribute.test.assertions.AttributeAssertions.assertThat;
 
-import org.carrot2.util.attribute.*;
+import org.carrot2.util.attribute.AttributeDescriptor;
+import org.carrot2.util.attribute.BindableDescriptor;
 import org.carrot2.util.attribute.BindableMetadata;
 import org.fest.assertions.Assertions;
 

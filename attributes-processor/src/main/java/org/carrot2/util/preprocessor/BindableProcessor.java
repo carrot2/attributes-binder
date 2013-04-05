@@ -19,6 +19,7 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 import javax.annotation.processing.*;
+import javax.lang.model.SourceVersion;
 import javax.lang.model.element.*;
 import javax.lang.model.type.TypeKind;
 import javax.lang.model.type.TypeMirror;
@@ -41,7 +42,6 @@ import com.thoughtworks.qdox.parser.structs.TagDef;
  * types and generating their metadata.
  */
 @SupportedAnnotationTypes("org.carrot2.util.attribute.Bindable")
-@SupportedSourceVersion(RELEASE_6)
 public final class BindableProcessor extends AbstractProcessor
 {
     /**
@@ -672,5 +672,11 @@ public final class BindableProcessor extends AbstractProcessor
             default:
                 throw new RuntimeException("Unexpected type: " + e);
         }
+    }
+    
+    @Override
+    public SourceVersion getSupportedSourceVersion()
+    {
+        return SourceVersion.latest();
     }
 }
