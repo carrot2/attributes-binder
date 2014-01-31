@@ -12,6 +12,8 @@
 
 package org.carrot2.util.preprocessor;
 
+import static javax.lang.model.SourceVersion.RELEASE_6;
+
 import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;

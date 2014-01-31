@@ -19,6 +19,7 @@ import org.carrot2.util.attribute.TestProcessing;
 import org.carrot2.util.attribute.constraint.ImplementingClasses;
 
 @Bindable
+@SuppressWarnings("unused")
 public class NonprimitiveAttribute
 {
     /**
