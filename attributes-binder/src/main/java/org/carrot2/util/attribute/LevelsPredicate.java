@@ -29,6 +29,11 @@ public final class LevelsPredicate implements Predicate<AttributeDescriptor>
 
     public boolean apply(AttributeDescriptor descriptor)
     {
+        if (descriptor.metadata == null)
+        {
+            return false;
+        }
+
         for (AttributeLevel level : levels)
         {
             if (level.equals(descriptor.metadata.getLevel()))
