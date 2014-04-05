@@ -14,6 +14,7 @@ package org.carrot2.util.attribute;
 
 import java.io.StringWriter;
 import java.lang.annotation.Annotation;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -145,6 +146,32 @@ public class BindableDescriptorBuilderTest extends RandomizedTest
 
         Assert.assertTrue("Exception during serialization: " + s1.e, s1.e == null);
         Assert.assertTrue("Exception during serialization: " + s2.e, s2.e == null);
+    }
+
+    @Bindable
+    @SuppressWarnings("unused")
+    public static class AcceptsArray
+    {
+        @Attribute
+        @ImplementingClasses(classes =
+      {
+          String.class,
+          String [].class,
+          List.class
+      }, strict = true)
+      public Object labelDictionary = null;
+    }
+
+    @Test
+    public void testArrayTypesInImplementingClasses() throws Exception
+    {
+        final BindableDescriptor bindableDescriptor = BindableDescriptorBuilder
+            .buildDescriptor(new AcceptsArray());
+
+        Persister p = new Persister();
+        StringWriter w = new StringWriter();
+        p.write(bindableDescriptor, w);
+        Assertions.assertThat(w.toString()).contains("<class>java.lang.String[]</class>");
     }
 
     @Test

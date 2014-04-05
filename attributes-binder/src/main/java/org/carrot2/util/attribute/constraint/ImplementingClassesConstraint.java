@@ -27,8 +27,10 @@ class ImplementingClassesConstraint extends Constraint
      * 
      * @see ImplementingClasses#classes()
      */
-    @ElementArray
     private Class<?> [] classes;
+    
+    @ElementArray(name = "classes", entry = "class")
+    private String [] classesAsStrings;
 
     /**
      * Auto-assigned by {@link ConstraintFactory}.
@@ -89,5 +91,14 @@ class ImplementingClassesConstraint extends Constraint
         final ImplementingClasses implementingClasses = (ImplementingClasses) annotation;
         classes = implementingClasses.classes();
         strict = implementingClasses.strict();
+        
+        classesAsStrings = new String[classes.length];
+        for (int i = 0; i < classes.length; i++) {
+          classesAsStrings[i] = classes[i].getCanonicalName();
+        }
+    }
+    
+    public static void main(String[] args) {
+      System.out.println((String[][].class).getSimpleName());
     }
 }
