@@ -17,7 +17,7 @@ import java.util.List;
 
 import org.carrot2.util.attribute.Attribute;
 
-import com.google.common.collect.Lists;
+import org.carrot2.shaded.guava.common.collect.Lists;
 
 /**
  * An exception thrown when an attempt is made to bind attribute values that do not meet

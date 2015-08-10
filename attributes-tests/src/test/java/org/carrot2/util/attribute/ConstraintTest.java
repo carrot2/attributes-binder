@@ -18,7 +18,7 @@ import org.carrot2.util.attribute.constraint.ImplementingClasses;
 import org.junit.Test;
 
 import com.carrotsearch.randomizedtesting.RandomizedTest;
-import com.google.common.collect.Maps;
+import org.carrot2.shaded.guava.common.collect.Maps;
 
 /**
  * Test cases for constraints.

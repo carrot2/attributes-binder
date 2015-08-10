@@ -16,8 +16,8 @@ import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.common.base.Throwables;
-import com.google.common.collect.Lists;
+import org.carrot2.shaded.guava.common.base.Throwables;
+import org.carrot2.shaded.guava.common.collect.Lists;
 
 /**
  * Builds constraint implementation from constraint annotations.

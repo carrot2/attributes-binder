@@ -15,7 +15,7 @@ package org.carrot2.util.attribute.constraint;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.google.common.collect.*;
+import org.carrot2.shaded.guava.common.collect.*;
 
 /**
  * Utilities for dealing with {@link IValueHintMapping} and {@link Enum} classes.

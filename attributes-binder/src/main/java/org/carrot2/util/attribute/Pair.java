@@ -1,6 +1,6 @@
 package org.carrot2.util.attribute;
 
-import com.google.common.base.Objects;
+import org.carrot2.shaded.guava.common.base.Objects;
 
 /**
  * An immutable pair of objects.

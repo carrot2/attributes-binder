@@ -35,8 +35,8 @@ import org.junit.Test;
 import org.simpleframework.xml.core.Persister;
 
 import com.carrotsearch.randomizedtesting.RandomizedTest;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
+import org.carrot2.shaded.guava.common.collect.Lists;
+import org.carrot2.shaded.guava.common.collect.Maps;
 
 public class BindableDescriptorBuilderTest extends RandomizedTest
 {

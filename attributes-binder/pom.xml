@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.carrot2.attributes</groupId>
     <artifactId>attributes-parent</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.3</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
@@ -39,15 +39,9 @@
     </dependency>
 
     <dependency>
-      <groupId>com.google.guava</groupId>
+      <groupId>org.carrot2.shaded</groupId>
       <artifactId>guava</artifactId>
-      <version>14.0.1</version>
-      <exclusions>
-        <exclusion>
-          <artifactId>jsr305</artifactId>
-          <groupId>com.google.code.findbugs</groupId>
-        </exclusion>
-      </exclusions>
+      <version>18.0</version>
     </dependency>
   </dependencies>
 </project>

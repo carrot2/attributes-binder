@@ -20,9 +20,9 @@ import java.util.Map;
 import org.carrot2.util.attribute.AttributeBinder.BindingTracker;
 import org.carrot2.util.attribute.AttributeBinder.IAttributeBinderAction;
 
-import com.google.common.base.Predicate;
-import com.google.common.base.Predicates;
-import com.google.common.base.Throwables;
+import org.carrot2.shaded.guava.common.base.Predicate;
+import org.carrot2.shaded.guava.common.base.Predicates;
+import org.carrot2.shaded.guava.common.base.Throwables;
 
 /**
  * A very simple field value injector based on the {@link AttributeBinder}. The injector

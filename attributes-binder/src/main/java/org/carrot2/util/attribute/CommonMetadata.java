@@ -14,7 +14,7 @@ package org.carrot2.util.attribute;
 
 import org.simpleframework.xml.Element;
 
-import com.google.common.base.Strings;
+import org.carrot2.shaded.guava.common.base.Strings;
 
 /**
  * Common metadata items for {@link BindableMetadata} and {@link AttributeMetadata}.

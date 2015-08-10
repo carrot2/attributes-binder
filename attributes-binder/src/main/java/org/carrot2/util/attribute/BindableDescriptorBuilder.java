@@ -23,8 +23,8 @@ import java.util.Set;
 
 import org.carrot2.util.attribute.constraint.IsConstraint;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
+import org.carrot2.shaded.guava.common.collect.Lists;
+import org.carrot2.shaded.guava.common.collect.Maps;
 
 /**
  * Builds {@link BindableDescriptor}s based on the provided bindable type instances.

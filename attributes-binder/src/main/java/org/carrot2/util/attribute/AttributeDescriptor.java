@@ -20,10 +20,10 @@ import org.carrot2.util.attribute.constraint.*;
 import org.carrot2.util.attribute.constraint.Constraint;
 import org.simpleframework.xml.*;
 
-import com.google.common.base.Function;
-import com.google.common.base.Predicate;
-import com.google.common.collect.*;
-import com.google.common.primitives.Primitives;
+import org.carrot2.shaded.guava.common.base.Function;
+import org.carrot2.shaded.guava.common.base.Predicate;
+import org.carrot2.shaded.guava.common.collect.*;
+import org.carrot2.shaded.guava.common.primitives.Primitives;
 
 /**
  * Provides a full description of an individual attribute, including its {@link #key},
@@ -92,21 +92,18 @@ public class AttributeDescriptor
      * Name of field representing the attribute, for serialization.
      */
     @org.simpleframework.xml.Attribute(name = "field")
-    @SuppressWarnings("unused")
     private String attributeFieldString;
 
     /**
      * Name of the class declaring the attribute, for serialization.
      */
     @org.simpleframework.xml.Attribute(name = "declaring-class")
-    @SuppressWarnings("unused")
     private String attributeDeclaringClassString;
     
     /**
      * Default value as string, for serialization.
      */
     @org.simpleframework.xml.Attribute(name = "default", required = false)
-    @SuppressWarnings("unused")
     private String defaultValueString;
 
     /**
@@ -307,7 +304,6 @@ public class AttributeDescriptor
     }
 
     @Root(name = "allowed-values")
-    @SuppressWarnings("unused")
     private static class AllowedValues
     {
         @ElementList(name = "allowed-values", entry = "value", required = false, inline = true)
@@ -328,7 +324,6 @@ public class AttributeDescriptor
         }
     }
 
-    @SuppressWarnings("unused")
     private static class AllowedValue
     {
         @org.simpleframework.xml.Attribute

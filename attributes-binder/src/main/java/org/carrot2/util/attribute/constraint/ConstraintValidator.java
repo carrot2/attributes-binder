@@ -15,7 +15,7 @@ package org.carrot2.util.attribute.constraint;
 import java.lang.annotation.Annotation;
 import java.util.List;
 
-import com.google.common.collect.Lists;
+import org.carrot2.shaded.guava.common.collect.Lists;
 
 /**
  * Checks whether values meet the provided constraints.

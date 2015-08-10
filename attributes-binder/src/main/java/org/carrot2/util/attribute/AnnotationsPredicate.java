@@ -14,7 +14,7 @@ package org.carrot2.util.attribute;
 
 import java.lang.annotation.Annotation;
 
-import com.google.common.base.Predicate;
+import org.carrot2.shaded.guava.common.base.Predicate;
 
 /**
  * A predicate that tests the presence of a given set of annotations on

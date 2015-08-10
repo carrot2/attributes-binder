@@ -19,9 +19,9 @@ import java.util.*;
 
 import org.carrot2.util.attribute.constraint.*;
 
-import com.google.common.base.*;
-import com.google.common.collect.*;
-import com.google.common.primitives.Primitives;
+import org.carrot2.shaded.guava.common.base.*;
+import org.carrot2.shaded.guava.common.collect.*;
+import org.carrot2.shaded.guava.common.primitives.Primitives;
 
 /**
  * Provides methods for binding (setting and getting) values of attributes defined by the
