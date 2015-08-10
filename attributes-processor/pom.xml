@@ -24,7 +24,7 @@
       <version>${project.version}</version>
       <exclusions>
         <exclusion>
-          <artifactId>guava</artifactId>
+          <artifactId>carrot2-guava</artifactId>
           <groupId>org.carrot2.shaded</groupId>
         </exclusion>
         <exclusion>
@@ -155,7 +155,7 @@
               <artifactSet>
                 <excludes>
                   <exclude>org.simpleframework:*</exclude>
-                  <exclude>org.carrot2.shaded:guava</exclude>
+                  <exclude>org.carrot2.shaded:carrot2-guava</exclude>
                 </excludes>
               </artifactSet>
               <filters>

@@ -40,7 +40,7 @@
 
     <dependency>
       <groupId>org.carrot2.shaded</groupId>
-      <artifactId>guava</artifactId>
+      <artifactId>carrot2-guava</artifactId>
       <version>18.0</version>
     </dependency>
   </dependencies>
