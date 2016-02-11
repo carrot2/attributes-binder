@@ -23,29 +23,28 @@ import org.carrot2.util.attribute.TestInit;
  *
  */
 @Bindable
-@SuppressWarnings("unused")
 public class AttributeLevels
 {
     @TestInit
     @Input
     @Attribute
     @Level(AttributeLevel.BASIC)
-    private int basicLevel;
+    public int basicLevel;
 
     @TestInit
     @Input
     @Attribute
     @Level(AttributeLevel.MEDIUM)
-    private int mediumLevel;
+    public int mediumLevel;
 
     @TestInit
     @Input
     @Attribute
     @Level(AttributeLevel.ADVANCED)
-    private int advancedLevel;
+    public int advancedLevel;
 
     @TestInit
     @Input
     @Attribute
-    private int noLevel;
+    public int noLevel;
 }

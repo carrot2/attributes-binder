@@ -22,7 +22,7 @@ public class NotBlankConstraintTest extends ConstraintTestBase<NotBlank>
     static class AnnotationContainer
     {
         @NotBlank
-        String field;
+        public String field;
     }
 
     @Override

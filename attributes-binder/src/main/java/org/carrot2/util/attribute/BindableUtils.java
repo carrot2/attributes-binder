@@ -43,15 +43,14 @@ public final class BindableUtils
 
     /**
      * Returns all fields from all {@link Bindable} types in the hierarchy of the provided
-     * <code>clazz</code>. The collected fields gets cached.
+     * <code>clazz</code>. The collected fields get cached.
      */
-    static Collection<Field> getFieldsFromHierarchy(Class<?> clazz,
-        Class<? extends Annotation> marker)
+    static Collection<Field> getFieldsFromHierarchy(Class<?> clazz, Class<? extends Annotation> marker)
     {
         synchronized (FIELD_CACHE)
         {
-            final Pair<Class<? extends Annotation>, Class<?>> key = new Pair<Class<? extends Annotation>, Class<?>>(
-                marker, clazz);
+            final Pair<Class<? extends Annotation>, Class<?>> key = 
+                new Pair<Class<? extends Annotation>, Class<?>>(marker, clazz);
             Collection<Field> fields = FIELD_CACHE.get(key);
             if (fields == null)
             {

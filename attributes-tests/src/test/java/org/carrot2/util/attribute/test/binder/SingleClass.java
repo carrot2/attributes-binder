@@ -38,7 +38,7 @@ public class SingleClass
     @Level(AttributeLevel.BASIC)
     @Group("Group A")
     @Label("Init Input Int")
-    private int initInputInt = 10;
+    public int initInputInt = 10;
 
     /**
      * Processing input string attribute. Some description.
@@ -49,10 +49,10 @@ public class SingleClass
     @Level(AttributeLevel.ADVANCED)
     @Group("Group B")
     @Label("Processing Input String")
-    private String processingInputString = "test";
+    public String processingInputString = "test";
 
     /**
      * This is not an attribute.
      */
-    private String notAnAttribute;
+    public String notAnAttribute;
 }

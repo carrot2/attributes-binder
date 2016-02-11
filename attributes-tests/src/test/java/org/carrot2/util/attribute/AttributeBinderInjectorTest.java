@@ -43,22 +43,22 @@ public class AttributeBinderInjectorTest extends RandomizedTest
     @TestInjectionMarker
     static class InjectionReceiver
     {
-        private A a;
-        private String string;
+        public A a;
+        public String string;
     }
 
     @TestInjectionMarker
     static class CompositeInjectionReceiver
     {
-        private A a;
-        private InjectionReceiver values = new InjectionReceiver();
+      public A a;
+      public InjectionReceiver values = new InjectionReceiver();
     }
     
     @TestInjectionMarker
     static class InjectionReceiverWithStaticFields 
     {
-        private static A a = new A();
-        private String string;
+      public static A a = new A();
+      public String string;
     }
 
     @Test

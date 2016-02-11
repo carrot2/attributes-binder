@@ -14,6 +14,7 @@ package org.carrot2.util.attribute;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -72,36 +73,66 @@ public class BindableDescriptorBuilder
             initializedInstance, bindableMetadata);
 
         // Build descriptors for nested bindables
-        final Map<Field, BindableDescriptor> bindableDescriptors = Maps
-            .newLinkedHashMap();
+        final Map<Field, BindableDescriptor> bindableDescriptors = Maps.newLinkedHashMap();
 
-        final Collection<Field> fieldsFromBindableHierarchy = BindableUtils
-            .getFieldsFromBindableHierarchy(clazz);
+        final Collection<Field> fieldsFromBindableHierarchy = BindableUtils.getFieldsFromBindableHierarchy(clazz);
         for (final Field field : fieldsFromBindableHierarchy)
         {
-            // Get class of runtime value
-            Object fieldValue = null;
-            try
+            // Omit any static fields.
+            if (Modifier.isStatic(field.getModifiers()))
             {
-                field.setAccessible(true);
-                fieldValue = field.get(initializedInstance);
-            }
-            catch (final Exception e)
-            {
-                throw new RuntimeException("Could not retrieve default value of field: "
-                    + field.getClass().getName() + "#" + field.getName());
+              continue;
             }
 
-            // Descend only for non-null values
-            if (fieldValue != null
-                && fieldValue.getClass().getAnnotation(Bindable.class) != null)
+            if (Modifier.isPublic(field.getModifiers()))
             {
-                bindableDescriptors.put(field, buildDescriptor(fieldValue, processedInstances));
+              try {
+                Object fieldValue = field.get(initializedInstance);
+                if (fieldValue != null && fieldValue.getClass().getAnnotation(Bindable.class) != null)
+                {
+                    bindableDescriptors.put(field, buildDescriptor(fieldValue, processedInstances));
+                }
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException("Could not access public field: "
+                    + field.getClass().getName() + "#" + field.getName(), e);
+              }
+            }
+            else
+            {
+              assert noHiddenBindables(field, initializedInstance);
             }
         }
 
         return new BindableDescriptor(clazz, bindableMetadata, bindableDescriptors,
             attributeDescriptors);
+    }
+
+    private static boolean noHiddenBindables(Field field, Object initializedInstance) {
+      // Get class of runtime value
+      Object fieldValue = null;
+      try
+      {
+        field.setAccessible(true);
+        fieldValue = field.get(initializedInstance);
+        if (fieldValue != null && fieldValue.getClass().getAnnotation(Bindable.class) != null) {
+          throw new AssertionError("A non-public field contains a Bindable object: "
+              + field.getClass().getName() + "#" + field.getName() + " => " + fieldValue.getClass().getName());
+        }
+      }
+      catch (final SecurityException e)
+      {
+        // Ignore. We can't get access to the field.
+      }
+      catch (IllegalArgumentException e)
+      {
+        throw new RuntimeException(e);
+      }
+      catch (IllegalAccessException e)
+      {
+        throw new RuntimeException(e);
+      }
+
+      return true;
     }
 
     /**
@@ -138,7 +169,6 @@ public class BindableDescriptorBuilder
 
         try
         {
-            field.setAccessible(true);
             defaultValue = field.get(initializedInstance);
         }
         catch (final Exception e)

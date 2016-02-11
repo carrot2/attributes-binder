@@ -30,5 +30,5 @@ public class SuperClass
     @TestInit
     @Input
     @Attribute
-    private int initInputInt = 5;
+    public int initInputInt = 5;
 }

@@ -33,24 +33,24 @@ public class FilteringReferenceClass
     @Input
     @Attribute
     @Level(AttributeLevel.BASIC)
-    private int initInput = 10;
+    public int initInput = 10;
 
     @TestInit
     @Output
     @Attribute
     @Level(AttributeLevel.MEDIUM)
-    private int initOutput = 10;
+    public int initOutput = 10;
 
     @TestProcessing
     @Input
     @Attribute
     @Level(AttributeLevel.ADVANCED)
     @Group("Group B")
-    private int processingInput = 10;
+    public int processingInput = 10;
 
     @TestProcessing
     @Output
     @Attribute
     @Group("Group A")
-    private int processingOutput = 10;
+    public int processingOutput = 10;
 }

@@ -22,14 +22,13 @@ import org.carrot2.util.attribute.TestInit;
  *
  */
 @Bindable
-@SuppressWarnings("unused")
 public class AttributeTitles
 {
     @TestInit
     @Input
     @Attribute
     @Label("label")
-    private int noTitle;
+    public int noTitle;
 
     /**
      * . Description follows.
@@ -38,7 +37,7 @@ public class AttributeTitles
     @Input
     @Attribute
     @Label("label")
-    private int emptyTitle;
+    public int emptyTitle;
 
     /**
      * Title with period.
@@ -46,7 +45,7 @@ public class AttributeTitles
     @TestInit
     @Input
     @Attribute
-    private int titleWithPeriod;
+    public int titleWithPeriod;
 
     /**
      * Title    with
@@ -57,7 +56,7 @@ public class AttributeTitles
     @TestInit
     @Input
     @Attribute
-    private int titleWithExtraSpace;
+    public int titleWithExtraSpace;
 
     /**
      * Title without period
@@ -65,7 +64,7 @@ public class AttributeTitles
     @TestInit
     @Input
     @Attribute
-    private int titleWithoutPeriod;
+    public int titleWithoutPeriod;
 
     /**
      * Title with exclamation mark! and something more. Description.
@@ -73,7 +72,7 @@ public class AttributeTitles
     @TestInit
     @Input
     @Attribute
-    private int titleWithExclamationMark;
+    public int titleWithExclamationMark;
 
     /**
      * Title with extra periods (e.g. www.carrot2.org). Description.
@@ -81,7 +80,7 @@ public class AttributeTitles
     @TestInit
     @Input
     @Attribute
-    private int titleWithExtraPeriods;
+    public int titleWithExtraPeriods;
 
     /**
      * Title with link to {@link AttributeTitles#titleWithLink}. Description.
@@ -89,7 +88,7 @@ public class AttributeTitles
     @TestInit
     @Input
     @Attribute
-    private int titleWithLink;
+    public int titleWithLink;
 
     /**
      * Title. Description with {@link #descriptionWithLinks} and {@link String} links and <b>markup</b>.
@@ -97,7 +96,7 @@ public class AttributeTitles
     @TestInit
     @Input
     @Attribute
-    private int descriptionWithLinks;
+    public int descriptionWithLinks;
     
     /**
      * Title. Description with &#160;.
@@ -105,7 +104,7 @@ public class AttributeTitles
     @TestInit
     @Input
     @Attribute
-    private int descriptionWithNumericEntities;
+    public int descriptionWithNumericEntities;
     
     /**
      * Title with description. Description follows.
@@ -113,7 +112,7 @@ public class AttributeTitles
     @TestInit
     @Input
     @Attribute
-    private int titleWithDescription;
+    public int titleWithDescription;
 
     /**
      * Title with label.
@@ -122,5 +121,5 @@ public class AttributeTitles
     @Input
     @Attribute
     @Label("label")
-    private int titleWithLabel;
+    public int titleWithLabel;
 }

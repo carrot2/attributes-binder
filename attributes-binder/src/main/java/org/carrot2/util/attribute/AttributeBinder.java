@@ -277,10 +277,14 @@ public class AttributeBinder
         {
             Object value = null;
 
+            // Omit any static fields.
+            if (Modifier.isStatic(field.getModifiers())) {
+              continue;
+            }
+
             // Get the value to perform a recursive call on it later on
             try
             {
-                field.setAccessible(true);
                 value = field.get(object);
             }
             catch (final Exception e)

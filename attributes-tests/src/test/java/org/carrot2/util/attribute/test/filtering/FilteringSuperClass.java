@@ -29,7 +29,7 @@ import org.carrot2.util.attribute.TestProcessing;
 @SuppressWarnings("unused")
 public class FilteringSuperClass
 {
-    private FilteringReferenceClass reference = new FilteringReferenceClass();
+    public FilteringReferenceClass reference = new FilteringReferenceClass();
 
     /**
      * 
@@ -38,7 +38,7 @@ public class FilteringSuperClass
     @Input
     @Attribute
     @Level(AttributeLevel.BASIC)
-    private int initInput = 10;
+    public int initInput = 10;
 
     /**
      * 
@@ -47,7 +47,7 @@ public class FilteringSuperClass
     @Output
     @Attribute
     @Level(AttributeLevel.MEDIUM)
-    private int initOutput = 10;
+    public int initOutput = 10;
 
     /**
      * 
@@ -57,24 +57,24 @@ public class FilteringSuperClass
     @Output
     @Attribute
     @Level(AttributeLevel.ADVANCED)
-    private int initInputOutput = 10;
+    public int initInputOutput = 10;
 
     @TestProcessing
     @Input
     @Attribute
     @Group("Group C")
-    private int processingInput = 10;
+    public int processingInput = 10;
 
     @TestProcessing
     @Output
     @Attribute
     @Group("Group C")
-    private int processingOutput = 10;
+    public int processingOutput = 10;
 
     @TestProcessing
     @Input
     @Output
     @Attribute
     @Group("Group B")
-    private int processingInputOutput = 10;
+    public int processingInputOutput = 10;
 }

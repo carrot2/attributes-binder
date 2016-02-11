@@ -30,5 +30,5 @@ public class SubClass extends SuperClass
     @TestProcessing
     @Input
     @Attribute
-    private String processingInputString = "input";
+    public String processingInputString = "input";
 }

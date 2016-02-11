@@ -29,7 +29,7 @@ public class BindableReferenceImpl2 implements IBindableReference
     @TestInit
     @Input
     @Attribute
-    private int initInputInt = 12;
+    public int initInputInt = 12;
 
     @Override
     public boolean equals(Object obj)

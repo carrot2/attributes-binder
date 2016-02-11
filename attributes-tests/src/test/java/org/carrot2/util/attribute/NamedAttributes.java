@@ -19,7 +19,6 @@ import org.carrot2.util.attribute.test.metadata.TestAttributeNames;
  * Test named attribute container.
  */
 @Bindable(inherit = TestAncestorAttributes.class)
-@SuppressWarnings("unused")
 public class NamedAttributes
 {
     private static final String TEST = "test";
@@ -27,13 +26,13 @@ public class NamedAttributes
     @TestInit
     @Input
     @Attribute(key = TestAttributeNames.TITLE_DESCRIPTION_LABEL, inherit = true)
-    private int noJavadoc;
+    public int noJavadoc;
 
     @TestInit
     @Input
     @Attribute(key = TestAttributeNames.TITLE_DESCRIPTION_LABEL, inherit = true)
     @Label("overridden")
-    private int labelOverride;
+    public int labelOverride;
 
     /**
      * Title overridden.
@@ -41,7 +40,7 @@ public class NamedAttributes
     @TestInit
     @Input
     @Attribute(key = TestAttributeNames.TITLE_DESCRIPTION_LABEL, inherit = true)
-    private int titleOverride;
+    public int titleOverride;
 
     /**
      * Title overridden. Description overridden.
@@ -49,10 +48,10 @@ public class NamedAttributes
     @TestInit
     @Input
     @Attribute(key = TestAttributeNames.TITLE_DESCRIPTION_LABEL, inherit = true)
-    private int titleDescriptionOverride;
+    public int titleDescriptionOverride;
 
     @TestInit
     @Input
     @Attribute(key = TEST)
-    private int noDotInKey;
+    public int noDotInKey;
 }

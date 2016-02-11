@@ -22,20 +22,19 @@ import org.carrot2.util.attribute.TestInit;
  *
  */
 @Bindable
-@SuppressWarnings("unused")
 public class AttributeGroups
 {
     @TestInit
     @Input
     @Attribute
     @Group("Group")
-    private int oneWordGroup;
+    public int oneWordGroup;
 
     @TestInit
     @Input
     @Attribute
     @Group("Multi word group")
-    private int multiWordGroup;
+    public int multiWordGroup;
 
     /**
      * 
@@ -43,5 +42,5 @@ public class AttributeGroups
     @TestInit
     @Input
     @Attribute
-    private int noGroup;
+    public int noGroup;
 }

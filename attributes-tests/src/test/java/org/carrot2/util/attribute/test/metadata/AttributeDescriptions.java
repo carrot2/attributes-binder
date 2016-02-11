@@ -22,14 +22,13 @@ import org.carrot2.util.attribute.TestInit;
  *
  */
 @Bindable
-@SuppressWarnings("unused")
 public class AttributeDescriptions
 {
     @TestInit
     @Input
     @Attribute
     @Label("label")
-    private int noDescriptionNoTitle;
+    public int noDescriptionNoTitle;
 
     /**
      * Title.
@@ -38,7 +37,7 @@ public class AttributeDescriptions
     @Input
     @Attribute
     @Label("label")
-    private int noDescription;
+    public int noDescription;
 
     /**
      * Title. Single sentence description.
@@ -46,7 +45,7 @@ public class AttributeDescriptions
     @TestInit
     @Input
     @Attribute
-    private int singleSentenceDescription;
+    public int singleSentenceDescription;
 
     /**
      * Title. Description sentence 1. Description sentence 2.
@@ -54,7 +53,7 @@ public class AttributeDescriptions
     @TestInit
     @Input
     @Attribute
-    private int twoSentenceDescription;
+    public int twoSentenceDescription;
 
     /**
      * Title. Description
@@ -65,5 +64,5 @@ public class AttributeDescriptions
     @TestInit
     @Input
     @Attribute
-    private int descriptionWithExtraSpace;
+    public int descriptionWithExtraSpace;
 }

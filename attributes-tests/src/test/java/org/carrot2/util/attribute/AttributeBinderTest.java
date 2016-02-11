@@ -50,22 +50,22 @@ public class AttributeBinderTest extends RandomizedTest
         @TestInit
         @Input
         @Attribute
-        private int initInput = 5;
+        public int initInput = 5;
 
         @TestInit
         @Output
         @Attribute
-        private int initOutput = 10;
+        public int initOutput = 10;
 
         @TestProcessing
         @Input
         @Attribute
-        private int processingInput = 5;
+        public int processingInput = 5;
 
         @TestProcessing
         @Output
         @Attribute
-        private int processingOutput = 10;
+        public int processingOutput = 10;
     }
 
     @Bindable
@@ -74,12 +74,12 @@ public class AttributeBinderTest extends RandomizedTest
         @TestProcessing
         @Input
         @Attribute
-        private int processingInput = 5;
+        public int processingInput = 5;
 
         @TestProcessing
         @Output
         @Attribute
-        private int processingOutput = 9;
+        public int processingOutput = 9;
     }
 
     @Bindable
@@ -88,12 +88,12 @@ public class AttributeBinderTest extends RandomizedTest
         @TestProcessing
         @Input
         @Attribute
-        private int processingInput = 5;
+        public int processingInput = 5;
 
         @TestProcessing
         @Output
         @Attribute
-        private int processingOutput = 5;
+        public int processingOutput = 5;
     }
 
     @Bindable
@@ -102,7 +102,7 @@ public class AttributeBinderTest extends RandomizedTest
         @TestProcessing
         @Input
         @Attribute
-        private BindableReference bindableReference;
+        public BindableReference bindableReference;
     }
 
     @Bindable
@@ -111,7 +111,7 @@ public class AttributeBinderTest extends RandomizedTest
         @TestProcessing
         @Output
         @Attribute
-        private BindableReference bindableReference;
+        public BindableReference bindableReference;
     }
 
     @Bindable
@@ -119,15 +119,14 @@ public class AttributeBinderTest extends RandomizedTest
     {
         @Input
         @Attribute
-        private TestEnum enumInput;
+        public TestEnum enumInput;
     }
 
     @Bindable
     public static class BindableReferenceContainer
     {
-        private BindableReference bindableReference = new BindableReference();
-
-        private NotBindable notBindableReference = new NotBindable();
+        public BindableReference bindableReference = new BindableReference();
+        public NotBindable notBindableReference = new NotBindable();
     }
 
     @Bindable
@@ -136,12 +135,12 @@ public class AttributeBinderTest extends RandomizedTest
         @TestProcessing
         @Input
         @Attribute
-        private int processingInput = 5;
+        public int processingInput = 5;
 
         @TestProcessing
         @Output
         @Attribute
-        private int processingOutput = 5;
+        public int processingOutput = 5;
     }
 
     @Bindable
@@ -151,7 +150,7 @@ public class AttributeBinderTest extends RandomizedTest
         @Input
         @Attribute
         @IntRange(min = 0, max = 10)
-        private int processingInput = 5;
+        public int processingInput = 5;
     }
 
     @Bindable
@@ -162,7 +161,7 @@ public class AttributeBinderTest extends RandomizedTest
         @Attribute
         @IntRange(min = 0, max = 10)
         @IntModulo(modulo = 3)
-        private int processingInput = 3;
+        public int processingInput = 3;
     }
 
     @Bindable
@@ -175,7 +174,7 @@ public class AttributeBinderTest extends RandomizedTest
         {
             CoercedInterfaceImpl.class
         }, strict = false)
-        private ICoercedInterface coerced = null;
+        public ICoercedInterface coerced = null;
     }
 
     @Bindable
@@ -189,7 +188,7 @@ public class AttributeBinderTest extends RandomizedTest
         {
             CircularReferenceContainer.class
         })
-        private CircularReferenceContainer circular;
+        public CircularReferenceContainer circular;
     }
 
     public static interface ICoercedInterface
@@ -202,7 +201,7 @@ public class AttributeBinderTest extends RandomizedTest
         @TestInit
         @Input
         @Attribute
-        private int initInput = 5;
+        public int initInput = 5;
     }
 
     @Bindable(prefix = "Prefix")
@@ -211,12 +210,12 @@ public class AttributeBinderTest extends RandomizedTest
         @TestInit
         @Input
         @Attribute(key = "init")
-        private int initInput = 5;
+        public int initInput = 5;
 
         @TestProcessing
         @Input
         @Attribute
-        private int processingInput = 10;
+        public int processingInput = 10;
     }
 
     @Bindable
@@ -229,7 +228,7 @@ public class AttributeBinderTest extends RandomizedTest
         {
             BindableReference.class
         })
-        private BindableReference processingInput = null;
+        public BindableReference processingInput = null;
     }
 
     public static class NotBindable
@@ -237,14 +236,14 @@ public class AttributeBinderTest extends RandomizedTest
         @TestProcessing
         @Input
         @Attribute
-        private int processingInput = 5;
+        public int processingInput = 5;
     }
 
     @Bindable
     public static class OnlyBindingDirectionAnnotationProvided
     {
         @Input
-        private int initInput;
+        public int initInput;
     }
 
     @Bindable
@@ -252,7 +251,7 @@ public class AttributeBinderTest extends RandomizedTest
     {
         @TestInit
         @Attribute
-        private int initInput;
+        public int initInput;
     }
 
     @Bindable
@@ -262,13 +261,13 @@ public class AttributeBinderTest extends RandomizedTest
         @Input
         @Required
         @Attribute
-        private int initInputInt;
+        public int initInputInt;
 
         @TestInit
         @Input
         @Required
         @Attribute
-        private String initInputString;
+        public String initInputString;
     }
 
     @Bindable
@@ -279,7 +278,7 @@ public class AttributeBinderTest extends RandomizedTest
         @Output
         @Required
         @Attribute
-        private Class<?> initInputOutputClass;
+        public Class<?> initInputOutputClass;
     }
 
     @Bindable
@@ -293,7 +292,7 @@ public class AttributeBinderTest extends RandomizedTest
         {
             NotBindable.class
         })
-        private NotBindable initInputReference;
+        public NotBindable initInputReference;
     }
 
     @Bindable
@@ -304,7 +303,7 @@ public class AttributeBinderTest extends RandomizedTest
         @Input
         @Required
         @Attribute
-        private String initProcessingInputString;
+        public String initProcessingInputString;
     }
 
     @Bindable
@@ -313,32 +312,32 @@ public class AttributeBinderTest extends RandomizedTest
         @TestProcessing
         @Input
         @Attribute
-        private List<String> list;
+        public List<String> list;
 
         @TestProcessing
         @Input
         @Attribute
-        private LinkedList<String> linkedList;
+        public LinkedList<String> linkedList;
 
         @TestProcessing
         @Input
         @Attribute
-        private Set<String> set;
+        public Set<String> set;
 
         @TestProcessing
         @Input
         @Attribute
-        private LinkedHashSet<String> linkedHashSet;
+        public LinkedHashSet<String> linkedHashSet;
 
         @TestProcessing
         @Input
         @Attribute
-        private Map<String, String> map;
+        public Map<String, String> map;
 
         @TestProcessing
         @Input
         @Attribute
-        private ConcurrentHashMap<String, String> concurrentHashMap;
+        public ConcurrentHashMap<String, String> concurrentHashMap;
     }
 
     @Bindable
@@ -347,12 +346,12 @@ public class AttributeBinderTest extends RandomizedTest
         @Input
         @Output
         @Attribute(key = "int")
-        private int int1 = 10;
+        public int int1 = 10;
 
         @Input
         @Output
         @Attribute(key = "int")
-        private int int2 = 5;
+        public int int2 = 5;
     }
 
     @Bindable
@@ -361,18 +360,18 @@ public class AttributeBinderTest extends RandomizedTest
         @Input
         @Output
         @Attribute(key = "int")
-        private int int1 = 5;
+        public int int1 = 5;
     }
 
     @Bindable
     public static class DuplicateAttributeKeysParent
     {
-        private DuplicateAttributeKeysChild child = new DuplicateAttributeKeysChild();
+        public DuplicateAttributeKeysChild child = new DuplicateAttributeKeysChild();
 
         @Input
         @Output
         @Attribute(key = "int")
-        private int int1 = 7;
+        public int int1 = 7;
     }
 
     @Bindable
@@ -1110,7 +1109,7 @@ public class AttributeBinderTest extends RandomizedTest
         @ImplementingClasses(classes = {
             // Nothing specific.
         }, strict = false)
-        private NonDelegable attr;
+        public NonDelegable attr;
     }
 
     public abstract static class NonDelegable
@@ -1172,8 +1171,6 @@ public class AttributeBinderTest extends RandomizedTest
             try
             {
                 final Field declaredField = clazz.getDeclaredField(fieldName);
-                declaredField.setAccessible(true);
-
                 actualFieldValue = declaredField.get(instance);
             }
             catch (final Exception e)

@@ -35,7 +35,7 @@ public class FilteringSubClass extends FilteringSuperClass
     @Attribute
     @Level(AttributeLevel.BASIC)
     @Group("Group B")
-    private int initProcessingInput = 10;
+    public int initProcessingInput = 10;
 
     @TestInit
     @TestProcessing
@@ -43,7 +43,7 @@ public class FilteringSubClass extends FilteringSuperClass
     @Attribute
     @Level(AttributeLevel.MEDIUM)    
     @Group("Group B")
-    private int initProcessingOutput = 10;
+    public int initProcessingOutput = 10;
 
     @TestInit
     @TestProcessing
@@ -51,5 +51,5 @@ public class FilteringSubClass extends FilteringSuperClass
     @Output
     @Attribute
     @Group("Group A")
-    private int initProcessingInputOutput = 10;
+    public int initProcessingInputOutput = 10;
 }

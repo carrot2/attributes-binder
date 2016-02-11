@@ -30,5 +30,5 @@ public class BindableReferenceImpl1 implements IBindableReference
     @TestProcessing
     @Input
     @Attribute
-    private int processingInputInt = 10;
+    public int processingInputInt = 10;
 }

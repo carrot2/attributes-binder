@@ -35,7 +35,7 @@ public class ConstraintTest extends RandomizedTest
         {
             String.class, Integer.class, Boolean.class
         })
-        private Object object = "";
+        public Object object = "";
     }
 
     @Bindable
@@ -48,7 +48,7 @@ public class ConstraintTest extends RandomizedTest
         {
             String.class
         }, strict = false)
-        private Object object = "";
+        public Object object = "";
     }
 
     @Test

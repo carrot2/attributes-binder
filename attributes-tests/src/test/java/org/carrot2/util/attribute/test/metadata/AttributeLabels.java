@@ -29,19 +29,19 @@ public class AttributeLabels
     @Input
     @Attribute
     @Label("word")
-    private int singleWordLabel;
+    public int singleWordLabel;
 
     @TestInit
     @Input
     @Attribute
     @Label("multi word label")
-    private int multiWordLabel;
+    public int multiWordLabel;
 
     @TestInit
     @Input
     @Attribute
     @Label("First label sentence. Second label sentence.")
-    private int multiSentenceLabel;
+    public int multiSentenceLabel;
 
     /**
      * Attribute comment. Second sentence of attribute comment.
@@ -50,5 +50,5 @@ public class AttributeLabels
     @Input
     @Attribute
     @Label("word")
-    private int labelWithComment;
+    public int labelWithComment;
 }

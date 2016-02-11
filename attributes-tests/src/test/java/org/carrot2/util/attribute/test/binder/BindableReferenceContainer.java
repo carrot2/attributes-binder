@@ -35,11 +35,11 @@ public class BindableReferenceContainer
     {
         BindableReferenceImpl1.class, BindableReferenceImpl2.class
     })
-    private IBindableReference bindableAttribute;
+    public IBindableReference bindableAttribute;
 
     /**
      * This is just a field, not a parameter, but if it's implementation is bindable, its
      * descriptors need to be considered as well.
      */
-    private IBindableReference bindableField = new BindableReferenceImpl1();
+    public IBindableReference bindableField = new BindableReferenceImpl1();
 }

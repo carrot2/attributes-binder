@@ -19,7 +19,9 @@ import org.carrot2.util.attribute.test.metadata.AttributeGroups;
 import org.carrot2.util.attribute.test.metadata.AttributeLabels;
 import org.carrot2.util.attribute.test.metadata.AttributeLevels;
 import org.carrot2.util.attribute.test.metadata.AttributeTitles;
+import org.carrot2.util.attribute.test.metadata.MixedFields;
 import org.carrot2.util.attribute.test.metadata.NoJavadoc;
+import org.carrot2.util.attribute.test.metadata.NonPublicBindables;
 import org.carrot2.util.attribute.test.metadata.TestBindable;
 import org.junit.Test;
 
@@ -340,6 +342,26 @@ public class BindableMetadataBuilderTest extends RandomizedTest
     public void testNoGroup()
     {
         assertNull(getGroup(AttributeGroups.class, "noGroup"));
+    }
+
+    @Test
+    public void testMixedPrivateAndStaticFields()
+    {
+        assertNotNull(getAttributeMetadata(MixedFields.class, "noJavadoc"));
+    }
+
+    @Test
+    public void testNonPublicBindables()
+    {
+      // Only valid with assertions enabled.
+      assumeTrue(AttributeBinder.class.desiredAssertionStatus());
+      
+      try {
+        getAttributeMetadata(NonPublicBindables.class, "");
+        fail();
+      } catch (AssertionError e) {
+        // Expected.
+      }
     }
 
     /**
