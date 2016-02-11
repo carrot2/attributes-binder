@@ -452,9 +452,13 @@ public class AttributeBinder
                     return Class.forName(stringValue, true, 
                         Thread.currentThread().getContextClassLoader());
                 }
+                catch (SecurityException e)
+                {
+                  // Ignore, no access to CCL.
+                }
                 catch (ClassNotFoundException e)
                 {
-                    // Just skip this possibility.
+                  // Just skip this possibility.
                 }
 
                 return stringValue;
