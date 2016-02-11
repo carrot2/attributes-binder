@@ -21,6 +21,7 @@ import org.carrot2.util.attribute.test.metadata.AttributeLevels;
 import org.carrot2.util.attribute.test.metadata.AttributeTitles;
 import org.carrot2.util.attribute.test.metadata.MixedFields;
 import org.carrot2.util.attribute.test.metadata.NoJavadoc;
+import org.carrot2.util.attribute.test.metadata.NonPublicAttributes;
 import org.carrot2.util.attribute.test.metadata.NonPublicBindables;
 import org.carrot2.util.attribute.test.metadata.TestBindable;
 import org.junit.Test;
@@ -364,6 +365,20 @@ public class BindableMetadataBuilderTest extends RandomizedTest
       }
     }
 
+    @Test
+    public void testNonPublicAttributes()
+    {
+      // Only valid with assertions enabled.
+      assumeTrue(AttributeBinder.class.desiredAssertionStatus());
+
+      try {
+        BindableDescriptorBuilder.buildDescriptor(new NonPublicAttributes());
+        fail();
+      } catch (AssertionError e) {
+        // Expected.
+      }
+    }
+    
     /**
      *
      */

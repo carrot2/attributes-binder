@@ -171,10 +171,15 @@ public class BindableDescriptorBuilder
         {
             defaultValue = field.get(initializedInstance);
         }
-        catch (final Exception e)
+        catch (IllegalAccessException e)
+        {
+            throw new AssertionError("An attribute field must be public: " +
+                field.getDeclaringClass().getName() + "#" + field.getName());
+        }
+        catch (Exception e)
         {
             throw new RuntimeException("Could not retrieve default value of attribute: "
-                + BindableUtils.getKey(field));
+                + BindableUtils.getKey(field), e);
         }
 
         AttributeMetadata attributeMetadata = null;
