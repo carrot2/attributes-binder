@@ -99,6 +99,7 @@ public final class AttributeInfo
     /**
      * Returns the first non-null argument from the list or null if all arguments are null.
      */
+    @SafeVarargs
     private static <T> T firstNonNull(T... objs)
     {
         for (T t : objs) {

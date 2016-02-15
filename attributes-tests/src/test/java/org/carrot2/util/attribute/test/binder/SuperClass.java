@@ -21,7 +21,6 @@ import org.carrot2.util.attribute.TestInit;
  *
  */
 @Bindable
-@SuppressWarnings("unused")
 public class SuperClass
 {
     /**

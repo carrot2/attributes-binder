@@ -97,6 +97,7 @@ public class AttributeBinder
      * @throws UnsupportedOperationException if an attempt is made to bind values of
      *             attributes with circular references.
      */
+    @SafeVarargs
     public static Map<String, Object> set(Object object, Map<String, Object> values,
         Class<? extends Annotation>... filteringAnnotations)
         throws InstantiationException, AttributeBindingException
@@ -108,6 +109,7 @@ public class AttributeBinder
      * A version of {@link #set(Object, Map, Class...)} that can optionally skip
      * {@link Required} attribute checking. For experts only.
      */
+    @SafeVarargs
     public static <T> Map<String, Object> set(T object, Map<String, Object> values,
         boolean checkRequired, Class<? extends Annotation>... filteringAnnotations)
         throws InstantiationException, AttributeBindingException
@@ -172,6 +174,7 @@ public class AttributeBinder
      * @throws UnsupportedOperationException if an attempt is made to collect values of
      *             attributes with circular references.
      */
+    @SafeVarargs
     public static void get(Object object, Map<String, Object> values,
         Class<? extends Annotation>... filteringAnnotations)
         throws InstantiationException, AttributeBindingException
@@ -188,6 +191,7 @@ public class AttributeBinder
      * A generic method for performing actions on the <code>object</code>'s hierarchy of
      * attributes. For experts only.
      */
+    @SafeVarargs
     public static void bind(Object object,
         IAttributeBinderAction [] attributeBinderActions,
         Class<? extends Annotation>... filteringAnnotations)
@@ -219,6 +223,7 @@ public class AttributeBinder
     {
         private final Class<? extends Annotation> [] filteringAnnotations;
 
+        @SafeVarargs
         public AllAnnotationsPresentPredicate(
             Class<? extends Annotation>... filteringAnnotations)
         {

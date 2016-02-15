@@ -26,6 +26,7 @@ import org.carrot2.util.attribute.test.constraint.TestConstraint2Constraint;
 import org.junit.Test;
 
 import com.carrotsearch.randomizedtesting.RandomizedTest;
+import static org.junit.Assert.*;
 
 public class ConstraintCreatorTest extends RandomizedTest
 {

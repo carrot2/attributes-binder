@@ -229,7 +229,8 @@ public class BindableDescriptor
      *            matched.
      * @return a new {@link BindableDescriptor} with the descriptors filtered.
      */
-    public BindableDescriptor only(final Class<? extends Annotation>... annotationClasses)
+    @SafeVarargs
+    public final BindableDescriptor only(final Class<? extends Annotation>... annotationClasses)
     {
         if (annotationClasses.length == 0)
         {
@@ -249,7 +250,8 @@ public class BindableDescriptor
      *            matched.
      * @return a new {@link BindableDescriptor} with the descriptors filtered.
      */
-    public BindableDescriptor not(final Class<? extends Annotation>... annotationClasses)
+    @SafeVarargs
+    public final BindableDescriptor not(final Class<? extends Annotation>... annotationClasses)
     {
         if (annotationClasses.length == 0)
         {
@@ -307,10 +309,9 @@ public class BindableDescriptor
      * }
      * </pre>
      */
-    @SuppressWarnings("unchecked")
     public HashMap<String, Object> getDefaultValues()
     {
-        final HashMap<String, Object> values = Maps.newHashMap();
+        final HashMap<String, Object> values = new HashMap<>();
         for (AttributeDescriptor d : only(Input.class).flatten().attributeDescriptors.values())
         {
             if (d.defaultValue != null || d.requiredAttribute)

@@ -149,7 +149,6 @@ public class BindableDescriptorBuilderTest extends RandomizedTest
     }
 
     @Bindable
-    @SuppressWarnings("unused")
     public static class AcceptsArray
     {
         @Attribute

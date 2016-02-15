@@ -32,14 +32,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.carrotsearch.randomizedtesting.RandomizedTest;
+import static org.junit.Assert.*;
 
 /**
  * Test cases for {@link AttributeBinder}.
  */
-@SuppressWarnings(value =
-{
-    "unchecked", "unused"
-})
+@SuppressWarnings(value = "unchecked")
 public class AttributeBinderTest extends RandomizedTest
 {
     private Map<String, Object> attributes;

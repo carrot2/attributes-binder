@@ -21,7 +21,6 @@ import org.carrot2.util.attribute.TestProcessing;
  *
  */
 @Bindable
-@SuppressWarnings("unused")
 public class BindableReferenceImpl1 implements IBindableReference
 {
     /**

@@ -22,8 +22,8 @@ import org.fest.assertions.Assertions;
 import org.junit.Test;
 
 import com.carrotsearch.randomizedtesting.RandomizedTest;
+import static org.junit.Assert.*;
 
-@SuppressWarnings("unchecked")
 public class BindableDescriptorTest extends RandomizedTest
 {
     private final BindableDescriptor descriptor = BindableDescriptorBuilder

@@ -4,6 +4,7 @@ import org.carrot2.util.attribute.Attribute;
 import org.carrot2.util.attribute.Bindable;
 
 @Bindable 
+@SuppressWarnings("unused")
 public class NonPublicBindables {
   @Attribute
   public int noJavadoc;

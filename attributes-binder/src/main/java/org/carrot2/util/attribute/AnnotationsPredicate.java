@@ -25,6 +25,7 @@ public final class AnnotationsPredicate implements Predicate<AttributeDescriptor
     private final Class<? extends Annotation> [] annotationClasses;
     private final boolean requireAll;
 
+    @SafeVarargs
     public AnnotationsPredicate(boolean requireAll, Class<? extends Annotation>... annotationClasses)
     {
         this.annotationClasses = annotationClasses;

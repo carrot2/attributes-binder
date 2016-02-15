@@ -22,7 +22,6 @@ import org.carrot2.util.attribute.constraint.ImplementingClasses;
  *
  */
 @Bindable
-@SuppressWarnings("unused")
 public class BindableReferenceContainer
 {
     /**

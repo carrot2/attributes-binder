@@ -26,7 +26,6 @@ import org.carrot2.util.attribute.TestProcessing;
  *
  */
 @Bindable
-@SuppressWarnings("unused")
 public class FilteringSuperClass
 {
     public FilteringReferenceClass reference = new FilteringReferenceClass();

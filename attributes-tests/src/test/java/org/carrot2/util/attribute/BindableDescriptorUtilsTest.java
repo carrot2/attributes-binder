@@ -15,6 +15,7 @@ package org.carrot2.util.attribute;
 import org.junit.Test;
 
 import com.carrotsearch.randomizedtesting.RandomizedTest;
+import static org.junit.Assert.*;
 
 public class BindableDescriptorUtilsTest extends RandomizedTest
 {

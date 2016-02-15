@@ -26,7 +26,6 @@ import org.carrot2.shaded.guava.common.collect.Maps;
 public class ConstraintTest extends RandomizedTest
 {
     @Bindable
-    @SuppressWarnings("unused")
     static class WithStrictImplementingClasses
     {
         @Input
@@ -39,7 +38,6 @@ public class ConstraintTest extends RandomizedTest
     }
 
     @Bindable
-    @SuppressWarnings("unused")
     static class WithNonStrictImplementingClasses
     {
         @Input

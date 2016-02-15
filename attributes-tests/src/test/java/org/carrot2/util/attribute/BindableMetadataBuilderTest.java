@@ -27,6 +27,7 @@ import org.carrot2.util.attribute.test.metadata.TestBindable;
 import org.junit.Test;
 
 import com.carrotsearch.randomizedtesting.RandomizedTest;
+import static org.junit.Assert.*;
 
 public class BindableMetadataBuilderTest extends RandomizedTest
 {

@@ -45,7 +45,7 @@
     <maven.compiler.target>1.7</maven.compiler.target>
     <gpg.passphrase></gpg.passphrase>
 
-    <ver.randomizedtesting>2.0.9</ver.randomizedtesting>
+    <ver.randomizedtesting>2.3.3</ver.randomizedtesting>
   </properties>
 
   <modules>
@@ -60,9 +60,9 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.1</version>
+          <version>3.3</version>
         </plugin>
-        
+
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <configuration>
