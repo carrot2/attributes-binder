@@ -287,10 +287,25 @@ public class AttributeBinder
               continue;
             }
 
+            if (!Modifier.isPublic(field.getModifiers())) {
+              if (field.getAnnotation(Attribute.class) != null) {
+                throw new AttributeBindingException("Non-public attribute fields are no longer supported: "
+                    + field.getDeclaringClass().getName() + "#" + field.getName());
+              }
+
+              assert BindableDescriptorBuilder.noHiddenBindables(field, object);
+              continue;
+            }
+
             // Get the value to perform a recursive call on it later on
             try
             {
                 value = field.get(object);
+            }
+            catch (final IllegalAccessException e)
+            {
+                throw new AttributeBindingException("Non-accessible field: "
+                    + object.getClass().getName() + "#" + field.getName(), e);
             }
             catch (final Exception e)
             {

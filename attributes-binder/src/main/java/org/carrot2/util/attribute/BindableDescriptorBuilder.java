@@ -107,7 +107,7 @@ public class BindableDescriptorBuilder
             attributeDescriptors);
     }
 
-    private static boolean noHiddenBindables(Field field, Object initializedInstance) {
+    static boolean noHiddenBindables(Field field, Object initializedInstance) {
       // Get class of runtime value
       Object fieldValue = null;
       try
@@ -116,7 +116,7 @@ public class BindableDescriptorBuilder
         fieldValue = field.get(initializedInstance);
         if (fieldValue != null && fieldValue.getClass().getAnnotation(Bindable.class) != null) {
           throw new AssertionError("A non-public field contains a Bindable object: "
-              + field.getClass().getName() + "#" + field.getName() + " => " + fieldValue.getClass().getName());
+              + field.getDeclaringClass().getName() + "#" + field.getName() + " => " + fieldValue.getClass().getName());
         }
       }
       catch (final SecurityException e)

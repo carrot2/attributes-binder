@@ -63,6 +63,17 @@ public class AttributeBinderTest extends RandomizedTest
         @Output
         @Attribute
         public int processingOutput = 10;
+
+        // Should not touch these!
+        private int privateField;
+        private static int privateStaticField;
+        int packageField;
+        static int packageStaticField;
+        public int publicField;
+        public static int publicStaticField;
+
+        private Object privateReferenceField = new Object();
+        private static Object privateStaticReferenceField = new Object();
     }
 
     @Bindable
