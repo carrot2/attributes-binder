@@ -232,7 +232,6 @@ public class BindableDescriptorBuilderTest extends RandomizedTest
     }
 
     @Test
-    @SuppressWarnings("unchecked")
     public void testBindableReferenceWithBoundValue() throws Exception
     {
         final Object instance = new BindableReferenceContainer();

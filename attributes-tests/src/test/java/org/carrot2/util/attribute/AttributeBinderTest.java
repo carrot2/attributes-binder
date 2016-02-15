@@ -37,7 +37,6 @@ import static org.junit.Assert.*;
 /**
  * Test cases for {@link AttributeBinder}.
  */
-@SuppressWarnings(value = "unchecked")
 public class AttributeBinderTest extends RandomizedTest
 {
     private Map<String, Object> attributes;
