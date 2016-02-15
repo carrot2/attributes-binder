@@ -90,4 +90,9 @@ class DummyVariableElement implements VariableElement
     {
         throw new UnsupportedOperationException();
     }
+
+    /* Override on 1.8 only. */
+    public <A extends Annotation> A[] getAnnotationsByType(Class<A> annotationType) {
+      throw new UnsupportedOperationException();
+    }
 }
