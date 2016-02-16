@@ -289,12 +289,12 @@ public class AttributeBinder
 
             if (!Modifier.isPublic(field.getModifiers())) {
               if (field.getAnnotation(Attribute.class) != null) {
-                throw new AttributeBindingException("Non-public attribute fields are no longer supported: "
+                throw AttributeBindingException.createWithNoKey("Non-public attribute fields are no longer supported: "
                     + field.getDeclaringClass().getName() + "#" + field.getName());
               }
 
               if (predicate.apply(field)) {
-                throw new AttributeBindingException("Non-public fields are no longer supported: "
+                throw AttributeBindingException.createWithNoKey("Non-public fields are no longer supported: "
                     + field.getDeclaringClass().getName() + "#" + field.getName());
               }
 
@@ -309,13 +309,12 @@ public class AttributeBinder
             }
             catch (final IllegalAccessException e)
             {
-                throw new AttributeBindingException("Non-accessible field: "
+                throw AttributeBindingException.createWithNoKey("Non-accessible field: "
                     + object.getClass().getName() + "#" + field.getName(), e);
             }
             catch (final Exception e)
             {
-                throw AttributeBindingException
-                    .createWithNoKey("Could not get field value "
+                throw AttributeBindingException.createWithNoKey("Could not get field value "
                         + object.getClass().getName() + "#" + field.getName());
             }
 
@@ -823,7 +822,7 @@ public class AttributeBinder
             final Pair<Object, String> pair = new Pair<Object, String>(instance, key);
             if (boundInstances.contains(pair))
             {
-                throw new AttributeBindingException(
+                throw AttributeBindingException.createWithNoKey(
                     "Collecting values of multiple attributes with the same key (" + key
                         + ") in the same instance of class ("
                         + instance.getClass().getName() + ") is not allowed");
