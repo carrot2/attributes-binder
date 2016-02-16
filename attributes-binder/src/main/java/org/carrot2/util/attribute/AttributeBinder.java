@@ -293,7 +293,7 @@ public class AttributeBinder
                     + field.getDeclaringClass().getName() + "#" + field.getName());
               }
 
-              assert BindableDescriptorBuilder.noHiddenBindables(field, object);
+              assert BindableDescriptorBuilder.noHiddenBindables(field, object, markerAnnotation);
               continue;
             }
 
