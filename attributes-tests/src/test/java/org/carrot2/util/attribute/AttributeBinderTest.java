@@ -41,6 +41,7 @@ public class AttributeBinderTest extends RandomizedTest
 {
     private Map<String, Object> attributes;
 
+    @SuppressWarnings("unused")
     @Bindable
     public static class SingleClass
     {

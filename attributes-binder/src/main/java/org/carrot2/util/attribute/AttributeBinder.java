@@ -293,6 +293,11 @@ public class AttributeBinder
                     + field.getDeclaringClass().getName() + "#" + field.getName());
               }
 
+              if (predicate.apply(field)) {
+                throw new AttributeBindingException("Non-public fields are no longer supported: "
+                    + field.getDeclaringClass().getName() + "#" + field.getName());
+              }
+
               assert BindableDescriptorBuilder.noHiddenBindables(field, object, markerAnnotation);
               continue;
             }
