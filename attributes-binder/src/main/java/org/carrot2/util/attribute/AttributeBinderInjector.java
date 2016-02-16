@@ -21,7 +21,6 @@ import org.carrot2.util.attribute.AttributeBinder.BindingTracker;
 import org.carrot2.util.attribute.AttributeBinder.IAttributeBinderAction;
 
 import org.carrot2.shaded.guava.common.base.Predicate;
-import org.carrot2.shaded.guava.common.base.Predicates;
 import org.carrot2.shaded.guava.common.base.Throwables;
 
 /**
@@ -46,7 +45,7 @@ public class AttributeBinderInjector
      *            recursively receive value injection.
      */
     public static void injectByType(Class<? extends Annotation> injectableMarker,
-        Map<Class<?>, Object> values, Object... objects)
+        final Map<Class<?>, Object> values, Object... objects)
     {
         try
         {
@@ -58,8 +57,13 @@ public class AttributeBinderInjector
             {
                 if (o != null)
                 {
-                    AttributeBinder.bind(o, actions, Predicates.<Field> alwaysTrue(),
-                        injectableMarker);
+                    Predicate<Field> p = new Predicate<Field>() {
+                      @Override
+                      public boolean apply(Field field) {
+                        return values.containsKey(field.getType());
+                      }
+                    };
+                    AttributeBinder.bind(o, actions, p, injectableMarker);
                 }
             }
         }
@@ -83,20 +87,26 @@ public class AttributeBinderInjector
             Object object, Field field, Object value, Predicate<Field> predicate)
             throws InstantiationException
         {
-            try
-            {
-                if (!Modifier.isStatic(field.getModifiers())
-                    && values.containsKey(field.getType()))
-                {
+              if (!Modifier.isStatic(field.getModifiers()) && 
+                  values.containsKey(field.getType()))
+              {
+                  if (!Modifier.isPublic(field.getModifiers())) {
+                    throw AttributeBindingException.createWithNoKey("Could not assign to non-public field "
+                        + object.getClass().getName() + "#" + field.getName()
+                        + ", value " + value);
+                  }
+
+                  try
+                  {
                     field.set(object, values.get(field.getType()));
-                }
-            }
-            catch (final Exception e)
-            {
-                throw AttributeBindingException.createWithNoKey("Could not assign field "
-                    + object.getClass().getName() + "#" + field.getName()
-                    + " with value " + value, e);
-            }
+                  }
+                  catch (final Exception e)
+                  {
+                      throw AttributeBindingException.createWithNoKey("Could not assign field "
+                          + object.getClass().getName() + "#" + field.getName()
+                          + " with value " + value, e);
+                  }
+              }
         }
     }
 }
