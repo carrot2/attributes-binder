@@ -1,6 +1,6 @@
 
-#macro (stringOrEmpty $str)"${esc.java($stringutils.defaultIfEmpty($str, ""))}"#end
-#macro (stringOrNull $str)#if ($str)"$esc.java($str)"#else#* *#null#end#end
+#macro (stringOrEmpty $str)"${macros.java($macros.defaultIfEmpty($str, ""))}"#end
+#macro (stringOrNull $str)#if ($str)"$macros.java($str)"#else#* *#null#end#end
 
 // APT-generated file.
 
@@ -27,12 +27,12 @@ public final class ${sourceType.simpleName}Descriptor implements IBindableDescri
     /**
      * The component class for which this descriptor was generated. 
      */
-    public final String bindableClassName = "${esc.java($sourceType.qualifiedName)}";
+    public final String bindableClassName = "${macros.java($sourceType.qualifiedName)}";
 
     /**
      * Attribute prefix used by the component.
      */
-    public final String prefix = "${esc.java($bindable.prefix())}";
+    public final String prefix = "${macros.java($bindable.prefix())}";
 
     /**
      * A one sentence summary of the component. It could be presented as a header of the tool
@@ -124,7 +124,7 @@ public final class ${sourceType.simpleName}Descriptor implements IBindableDescri
 
 #foreach ($attr in $ownFields)
         /** Attribute key for: {@link ${attr.declaringClass}#${attr.field.simpleName}}. */
-        public static final String $methodutils.asConstant($attr.field.simpleName.toString()) = "${esc.java($attr.key)}";
+        public static final String $methodutils.asConstant($attr.field.simpleName.toString()) = "${macros.java($attr.key)}";
 #end
     }
 
@@ -147,9 +147,9 @@ public final class ${sourceType.simpleName}Descriptor implements IBindableDescri
          */
         public final AttributeInfo ${attr.field.simpleName} = 
             new AttributeInfo(
-                "${esc.java($attr.key)}",
-                "${esc.java($attr.declaringClass)}",
-                "${esc.java($attr.field.simpleName)}",
+                "${macros.java($attr.key)}",
+                "${macros.java($attr.declaringClass)}",
+                "${macros.java($attr.field.simpleName)}",
                 #stringOrNull($attr.javaDoc),
                 #stringOrNull($attr.label),
                 #stringOrNull($attr.title),

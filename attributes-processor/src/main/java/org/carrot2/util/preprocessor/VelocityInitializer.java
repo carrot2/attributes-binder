@@ -14,13 +14,9 @@ package org.carrot2.util.preprocessor;
 
 import javax.annotation.processing.Messager;
 
-import org.apache.commons.collections.ExtendedProperties;
-import org.apache.commons.lang.StringUtils;
 import org.apache.velocity.VelocityContext;
-import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.RuntimeInstance;
-import org.apache.velocity.runtime.log.NullLogChute;
-import org.apache.velocity.tools.generic.EscapeTool;
+import org.apache.velocity.util.ExtProperties;
 
 /**
  * Initialize velocity templating engine.
@@ -40,10 +36,8 @@ final class VelocityInitializer
     {
         try
         {
-            final ExtendedProperties p = new ExtendedProperties();
-            p.setProperty(RuntimeConstants.SET_NULL_ALLOWED, "true");
-            p.setProperty(RuntimeConstants.RUNTIME_LOG_LOGSYSTEM, new NullLogChute());
-
+            final ExtProperties p = new ExtProperties();
+            // p.setProperty(RuntimeConstants.SET_NULL_ALLOWED, "true");
             p.setProperty("resource.loader", "apt");
             p.setProperty("apt.resource.loader.instance",
                 new ClassRelativeResourceLoader(msg, VelocityInitializer.class));
@@ -65,15 +59,9 @@ final class VelocityInitializer
     {
         final VelocityContext context = new VelocityContext();
 
-        context.put("esc", new EscapeTool());
-        context.put("stringutils", new StringUtils());
+        context.put("macros", new Macros());
         context.put("methodutils", new MethodUtils());
 
         return context;
-    }
-    
-    public static void main(String [] args)
-    {
-        System.out.println(new EscapeTool().java("Dawid <b>bu</b>"));
     }
 }

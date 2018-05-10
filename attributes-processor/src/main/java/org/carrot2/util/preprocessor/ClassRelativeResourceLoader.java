@@ -12,16 +12,19 @@
 
 package org.carrot2.util.preprocessor;
 
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.Reader;
+import java.io.StringReader;
 import java.net.URL;
 import java.net.URLConnection;
 
 import javax.annotation.processing.Messager;
 
-import org.apache.commons.collections.ExtendedProperties;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.runtime.resource.Resource;
 import org.apache.velocity.runtime.resource.loader.ResourceLoader;
+import org.apache.velocity.util.ExtProperties;
 
 final class ClassRelativeResourceLoader extends ResourceLoader
 {
@@ -37,35 +40,9 @@ final class ClassRelativeResourceLoader extends ResourceLoader
     }
 
     @Override
-    public void init(ExtendedProperties props)
+    public void init(ExtProperties props)
     {
         // ignore.
-    }
-
-    /**
-     * 
-     */
-    @Override
-    public InputStream getResourceStream(String name) throws ResourceNotFoundException
-    {
-        /*
-         * Do some protocol connection magic because JAR URLs are cached and this complicates
-         * development (the template is not found once loaded).
-         */
-        URL resource = clazz.getResource(name);
-        if (resource == null) 
-            throw new ResourceNotFoundException("Resource not found: " + name);
-
-        try
-        {
-            URLConnection connection = resource.openConnection();
-            connection.setUseCaches(false);
-            return connection.getInputStream();
-        }
-        catch (Exception e)
-        {
-            throw new ResourceNotFoundException(e);
-        }
     }
 
     /**
@@ -84,5 +61,35 @@ final class ClassRelativeResourceLoader extends ResourceLoader
     public long getLastModified(Resource resource)
     {
         return 0L;
+    }
+
+    @Override
+    public Reader getResourceReader(String source, String encoding) throws ResourceNotFoundException {
+      /*
+       * Do some protocol connection magic because JAR URLs are cached and this complicates
+       * development (the template is not found once loaded).
+       */
+      URL resource = clazz.getResource(source);
+      if (resource == null) 
+          throw new ResourceNotFoundException("Resource not found: " + source);
+
+      try
+      {
+          URLConnection connection = resource.openConnection();
+          connection.setUseCaches(false);
+          InputStream is = connection.getInputStream();
+          ByteArrayOutputStream baos = new ByteArrayOutputStream();
+          byte [] buffer = new byte [1024];
+          int len;
+          while ((len = is.read(buffer)) >= 0) {
+            baos.write(buffer, 0, len);
+          }
+
+          return new StringReader(new String(baos.toByteArray(), encoding));
+      }
+      catch (Exception e)
+      {
+          throw new ResourceNotFoundException(e);
+      }
     }
 }
