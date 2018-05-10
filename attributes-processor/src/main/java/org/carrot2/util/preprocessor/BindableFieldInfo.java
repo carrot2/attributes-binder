@@ -39,14 +39,14 @@ public class BindableFieldInfo
         this.descriptorClass = descriptorClass;
     }
     
-    public VariableElement getField()
+    public VariableElementAccessWrapper getField()
     {
-        return field;
+        return new VariableElementAccessWrapper(field);
     }
     
-    public Element getFieldElement()
+    public String getFieldElement()
     {
-        return element;
+        return element.toString();
     }
     
     public String getDescriptorClass()

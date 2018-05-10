@@ -74,6 +74,7 @@
               <minimizeJar>false</minimizeJar>
               <artifactSet>
                 <excludes>
+                  <exclude>org.slf4j:*</exclude>
                   <exclude>org.simpleframework:*</exclude>
                   <exclude>org.carrot2.shaded:carrot2-guava</exclude>
                 </excludes>
@@ -83,14 +84,6 @@
                   <artifact>org.apache.velocity:velocity</artifact>
                   <excludes>
                     <exclude>org/apache/velocity/runtime/defaults/*.properties</exclude>
-                  </excludes>
-                </filter>
-                <filter>
-                  <artifact>org.apache.velocity:velocity-tools</artifact>
-                  <excludes>
-                    <exclude>org/apache/velocity/tools/struts/**</exclude>
-                    <exclude>org/apache/velocity/tools/view/**</exclude>
-                    <exclude>org/apache/velocity/tools/config/**</exclude>
                   </excludes>
                 </filter>
               </filters>

@@ -45,7 +45,7 @@
     <maven.compiler.target>1.7</maven.compiler.target>
     <gpg.passphrase></gpg.passphrase>
 
-    <ver.randomizedtesting>2.3.3</ver.randomizedtesting>
+    <ver.randomizedtesting>2.6.1</ver.randomizedtesting>
   </properties>
 
   <modules>

@@ -448,7 +448,7 @@ public final class BindableProcessor extends AbstractProcessor
             final VelocityContext context = VelocityInitializer.createContext();
             context.put("packageName", packageName);
             context.put("descriptorClassName", descriptorClassName);
-            context.put("sourceType", type);
+            context.put("sourceType", new TypeElementAccessWrapper(type));
             context.put("bindable", type.getAnnotation(Bindable.class));
             context.put("metadata", metadata);
             context.put("ownFields", ownFields);

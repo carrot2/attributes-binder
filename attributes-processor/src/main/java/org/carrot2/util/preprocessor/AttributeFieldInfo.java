@@ -64,9 +64,9 @@ public class AttributeFieldInfo
         return javaDoc;
     }
 
-    public VariableElement getField()
+    public VariableElementAccessWrapper getField()
     {
-        return field;
+        return new VariableElementAccessWrapper(field);
     }
 
     public String getDeclaringClass()
