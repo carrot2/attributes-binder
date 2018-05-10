@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.carrot2.attributes</groupId>
     <artifactId>attributes-parent</artifactId>
-    <version>1.3.3</version>
+    <version>1.3.4-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
