@@ -13,7 +13,7 @@
   <!-- Project info. -->
   <groupId>org.carrot2.attributes</groupId>
   <artifactId>attributes-parent</artifactId>
-  <version>1.3.4</version>
+  <version>1.3.5-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Attributes parent POM</name>
