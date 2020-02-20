@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.carrot2.attributes</groupId>
     <artifactId>attributes-parent</artifactId>
-    <version>1.3.4-SNAPSHOT</version>
+    <version>1.3.4</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
@@ -28,8 +28,8 @@
           <groupId>org.carrot2.shaded</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>simple-xml</artifactId>
-          <groupId>org.simpleframework</groupId>
+          <groupId>com.carrotsearch.thirdparty</groupId>
+          <artifactId>simple-xml-safe</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
