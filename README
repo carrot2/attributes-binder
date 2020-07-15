@@ -1,11 +1,1 @@
-
-Attribute binder and metadata extractor.
-
-This is similar to injection-based micro component containers but with some 
-additional features (support for pulling as well as injecting attributes, 
-separation of lifecycle phases, statically extracted metadata and builder
-classes).
-
-Mainly for use with Carrot2 clustering components (document sources, algorithms) but
-can be used as a stand-alone binder to inject and extract attribute values
-from components.
+This project has been discontinued.
